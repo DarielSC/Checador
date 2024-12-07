@@ -1,0 +1,103 @@
+﻿<Window x:Class="chk.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:chk"
+        mc:Ignorable="d"
+        Title="Tablero" Height="720" Width="1080" Icon="C:\Users\darie\source\repos\chk\chk\Resources\icono.png">
+    <Grid Margin="0,10,0,-6" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\darie\source\repos\chk\chk\Resources\background.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+
+
+        <materialDesign:Card Grid.Column="1" Margin="0,156,0,0" HorizontalAlignment="Center" Width="200" Height="413" VerticalAlignment="Top">
+            <Grid Margin="0,0,0,24">
+                <Grid.RowDefinitions>
+                    <RowDefinition
+                        Height="140" />
+                    <RowDefinition
+                        Height="*" />
+                    <RowDefinition
+                        Height="Auto" />
+                </Grid.RowDefinitions>
+                <Image
+                    Source="C:\Users\darie\source\repos\chk\chk\Resources\2808392.png"
+                    Stretch="UniformToFill" Grid.RowSpan="2" HorizontalAlignment="Center" Width="200" Height="200" VerticalAlignment="Top" />
+                <Button x:Name="btnEmpleados"
+                    Grid.Row="1"
+                    Margin="0,88,0,0"
+                    VerticalAlignment="Top"
+                    Style="{StaticResource MaterialDesignFloatingActionMiniButton}" HorizontalAlignment="Center" Width="40" Click="btnEmpleados_Click">
+                    <materialDesign:PackIcon
+                        Kind="AccountEdit" Height="30" Width="30" />
+                </Button>
+                <StackPanel Grid.Row="1" Margin="8,147,8,18">
+                    <TextBlock
+                        TextWrapping="Wrap" FontFamily="Arial Black" VerticalAlignment="Center" HorizontalAlignment="Center"><Run Text="AGREGAR Y EDITAR "/><Run Language="es-mx" Text=" "/><Run Text="USUARIOS"/></TextBlock>
+                </StackPanel>
+                <StackPanel
+                    Grid.Row="2"
+                    Margin="8"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal">
+                </StackPanel>
+            </Grid>
+        </materialDesign:Card>
+        <materialDesign:Card Grid.Column="2" Margin="48,157,0,0" HorizontalAlignment="Left" Width="200" RenderTransformOrigin="0.5,0.5" Height="413" VerticalAlignment="Top">
+            <materialDesign:Card.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0.213"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.996"/>
+                </TransformGroup>
+            </materialDesign:Card.RenderTransform>
+            <Grid Margin="0,0,0,24">
+                <Grid.RowDefinitions>
+                    <RowDefinition
+                        Height="140" />
+                    <RowDefinition
+                        Height="*" />
+                    <RowDefinition
+                        Height="Auto" />
+                </Grid.RowDefinitions>
+                <Image
+                    Source="C:\Users\darie\source\repos\chk\chk\Resources\Huella.jpg"
+                    Stretch="UniformToFill" Grid.RowSpan="2" HorizontalAlignment="Center" Width="200" Height="200" VerticalAlignment="Top" />
+                <Button x:Name="btnChecador"
+                    Grid.Row="1"
+                    Margin="0,87,0,0"
+                    VerticalAlignment="Top"
+                    Style="{StaticResource MaterialDesignFloatingActionMiniButton}" HorizontalAlignment="Center" Width="40" Click="btnChecador_Click">
+                    <materialDesign:PackIcon
+                        Kind="Fingerprint" Height="30" Width="30" />
+                </Button>
+                <StackPanel
+                    Grid.Row="1"
+                    Margin="9,144,7,21">
+                    <TextBlock
+                        Text="CHECADOR"
+                        TextWrapping="Wrap" FontFamily="Arial Black" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel
+                    Grid.Row="2"
+                    Margin="8"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal">
+                </StackPanel>
+            </Grid>
+        </materialDesign:Card>
+        <Rectangle Stroke="Black" Grid.ColumnSpan="4" Fill="#08426c" Height="100" VerticalAlignment="Top"/>
+        <Label Grid.Column="1" Content="Tablero de Administración" HorizontalAlignment="Left" Margin="10,23,0,0" VerticalAlignment="Top" FontFamily="Arial Black" Foreground="#E5FFFFFF" FontSize="40" Grid.ColumnSpan="3" Width="600"/>
+    </Grid>
+</Window>
