@@ -9,14 +9,22 @@
         Title="Empleados" Height="720" Width="1080" Loaded="Window_Loaded">
     <Grid Cursor="Hand">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="146*"/>
-            <ColumnDefinition Width="37*"/>
-            <ColumnDefinition Width="57*"/>
-            <ColumnDefinition Width="600"/>
-            <ColumnDefinition Width="240*"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="0"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="0"/>
+            <ColumnDefinition Width="800"/>
+            <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
 
-        <DataGrid ItemsSource="{Binding}" x:Name="dgEmpleados" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="95,35,300,352" Grid.ColumnSpan="4" SelectionChanged="dgEmpleados_SelectionChanged">
+        <DataGrid ItemsSource="{Binding}" x:Name="dgEmpleados" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="29,18,322,415" SelectionChanged="dgEmpleados_SelectionChanged" Grid.Column="4">
+
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}" Visibility="Hidden"/>
                 <DataGridTextColumn Header="Matricula" Binding="{Binding Matricula}"/>
@@ -31,44 +39,44 @@
         <TextBox
             VerticalAlignment="Top"
             materialDesign:HintAssist.Hint="Cargo:" x:Name="tbCargo"
-            Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="3" Margin="350,123,10,0" Height="36" />
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="4" Margin="513,123,10,0" Height="36" />
         <TextBox
             VerticalAlignment="Top"
             materialDesign:HintAssist.Hint="Nombre:" x:Name="tbNombre"
-            Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="3" Margin="350,174,10,0" />
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="4" Margin="513,174,10,0" Height="33" />
         <TextBox
             VerticalAlignment="Top"
             materialDesign:HintAssist.Hint="Apellido:" x:Name="tbApellido"
-            Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="3" Margin="350,224,10,0" />
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="4" Margin="513,224,10,0" Height="33" />
         <TextBox
             VerticalAlignment="Top"
             materialDesign:HintAssist.Hint="Matricula:" x:Name="tbMatricula"
-            Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="3" Margin="350,26,10,0" />
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="4" Margin="513,26,10,0" Height="33" />
         <TextBox
             VerticalAlignment="Top"
             materialDesign:HintAssist.Hint="Departamento:" x:Name="tbDepartamento"
-            Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="3" Margin="350,76,10,0" />
-        <Image Grid.Column="3" x:Name="imgFoto" HorizontalAlignment="Left" Height="171" Margin="357,358,0,0" VerticalAlignment="Top" Width="185"/>
-        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="3" HorizontalAlignment="Left" Height="172" Margin="357,358,0,0" VerticalAlignment="Top" Width="190"/>
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="4" Margin="513,76,10,0" Height="33" />
+        <Image Grid.Column="4" x:Name="imgFoto" HorizontalAlignment="Left" Height="171" Margin="579,357,0,0" VerticalAlignment="Top" Width="185"/>
+        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="4" HorizontalAlignment="Left" Height="172" Margin="579,357,0,0" VerticalAlignment="Top" Width="190"/>
         <Button x:Name="btnFoto"
             Content="Editar Foto"
             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
             Style="{StaticResource MaterialDesignRaisedButton}"
-            ToolTip="Resource name: MaterialDesignRaisedButton" Grid.Column="3" Margin="400,570,96,0" Cursor="Hand" Height="32" VerticalAlignment="Top" Click="btnFoto_Click" />
+            ToolTip="Resource name: MaterialDesignRaisedButton" Grid.Column="4" Margin="570,588,27,0" Cursor="Hand" Height="32" VerticalAlignment="Top" Click="btnFoto_Click" />
         <Button x:Name="btnCaptura"
             Content="Capturar Huella"
             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
             Style="{StaticResource MaterialDesignRaisedButton}"
-            ToolTip="Resource name: MaterialDesignRaisedButton" Grid.Column="3" Margin="385,314,81,0" Height="32" VerticalAlignment="Top" Click="btnCaptura_Click" />
+            ToolTip="Resource name: MaterialDesignRaisedButton" Grid.Column="4" Margin="579,304,46,0" Height="32" VerticalAlignment="Top" Click="btnCaptura_Click" />
         <Button x:Name="btnGuardar"
             Content="Guardar"
             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
             Style="{StaticResource MaterialDesignRaisedButton}"
-            ToolTip="Resource name: MaterialDesignRaisedButton" Grid.Column="3" Margin="408,620,104,0" Height="32" VerticalAlignment="Top" Click="btnGuardar_Click" />
+            ToolTip="Resource name: MaterialDesignRaisedButton" Grid.Column="4" Margin="585,639,42,0" Height="32" VerticalAlignment="Top" Click="btnGuardar_Click" />
         <TextBox
             VerticalAlignment="Top"
             materialDesign:HintAssist.Hint="" x:Name="tbUrlFoto" IsReadOnly="True"
-            Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="3" Margin="332,514,28,0" Height="46" />
-        <Image Grid.Column="3" x:Name="imgVerHuella" Source="Resources/autenticacion.png" Stretch="Uniform" Visibility="Hidden" HorizontalAlignment="Left" Height="32" Margin="532,257,0,0" VerticalAlignment="Top" Width="31"/>
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="4" Margin="568,529,24,0" Height="46" />
+        <Image Grid.Column="4" x:Name="imgVerHuella" Source="Resources/autenticacion.png" Stretch="Uniform" Visibility="Hidden" HorizontalAlignment="Left" Height="32" Margin="532,257,0,0" VerticalAlignment="Top" Width="31"/>
     </Grid>
 </Window>

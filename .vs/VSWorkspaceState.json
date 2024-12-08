@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\chk"
+    "\\chk",
+    "\\chk\\Modelos"
   ],
-  "SelectedNode": "\\chk",
+  "SelectedNode": "\\chk\\Modelos\\Empleado.cs",
   "PreviewInSolutionExplorer": false
 }

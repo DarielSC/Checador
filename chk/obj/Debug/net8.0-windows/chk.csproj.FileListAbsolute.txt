@@ -122,3 +122,4 @@ C:\Users\darie\source\repos\chk - copia\chk\obj\Debug\net8.0-windows\refint\chk.
 C:\Users\darie\source\repos\chk - copia\chk\obj\Debug\net8.0-windows\chk.pdb
 C:\Users\darie\source\repos\chk - copia\chk\obj\Debug\net8.0-windows\chk.genruntimeconfig.cache
 C:\Users\darie\source\repos\chk - copia\chk\obj\Debug\net8.0-windows\ref\chk.dll
+C:\Users\darie\source\repos\chk - copia\chk\obj\Debug\net8.0-windows\chk.sourcelink.json
