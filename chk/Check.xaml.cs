@@ -140,9 +140,10 @@ namespace chk
         public void Desplegar (Empleado empleado)
         {
             string url = "";
-
+            lblMatricula.Content = empleado.Matricula;
             lblNombre.Content = empleado.Nombre;
             lblApellido.Content = empleado.Apellido;
+            lblFechaHoraAlta.Content = empleado.FechaHoraAlta;
             if (empleado.Foto != "" && empleado.Foto != null)
             {
                 url = "C:/Chk/" + empleado.Foto;

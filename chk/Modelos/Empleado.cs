@@ -19,5 +19,7 @@ namespace chk.Modelos
         public string Cargo { get; set; } = string.Empty;
         public string Foto { get; set; } = string.Empty;
         public byte[] Huella { get; set; } = Array.Empty<byte>();
+        public DateTime FechaHoraAlta { get; set; }
+
     }
 }

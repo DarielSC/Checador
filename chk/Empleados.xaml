@@ -67,7 +67,7 @@
             Content="Capturar Huella"
             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
             Style="{StaticResource MaterialDesignRaisedButton}"
-            ToolTip="Resource name: MaterialDesignRaisedButton" Grid.Column="4" Margin="579,304,46,0" Height="32" VerticalAlignment="Top" Click="btnCaptura_Click" />
+            ToolTip="Resource name: MaterialDesignRaisedButton" Grid.Column="4" Margin="586,305,38,0" Height="32" VerticalAlignment="Top" Click="btnCaptura_Click" />
         <Button x:Name="btnGuardar"
             Content="Guardar"
             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"

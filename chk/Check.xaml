@@ -5,20 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:chk"
         mc:Ignorable="d"
-        Title="Check" Height="700" Width="1000" Closed="Window_Closed" Loaded="Window_Loaded" > 
+        Title="Check" Height="700" Width="1000" Closed="Window_Closed" Loaded="Window_Loaded" >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"/>
             <ColumnDefinition Width="800"/>
             <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
-        <Image Grid.Column="1" x:Name="ImgPerfil" HorizontalAlignment="Left" Height="383" Margin="200,10,0,0" VerticalAlignment="Top" Width="383"/>
-        <Label Content="Nombre" FontSize="30" x:Name="lblNombre" Grid.Column="1" HorizontalAlignment="Left" Margin="245,441,0,0" VerticalAlignment="Top"/>
-        <Label Content="Apellido" FontSize="30" x:Name="lblApellido" Grid.Column="1" Margin="249,493,421,0" VerticalAlignment="Top"/>
-
+        <Image Grid.Column="1" x:Name="ImgPerfil" HorizontalAlignment="Left" Height="332" Margin="246,10,0,0" VerticalAlignment="Top" Width="337"/>
+        <Label Content="Matricula:" FontSize="30" x:Name="lblMatricula" Grid.Column="1" HorizontalAlignment="Left" Margin="11,396,0,0" VerticalAlignment="Top" Width="378"/>
+        <Label Content="Nombre:" FontSize="30" x:Name="lblNombre" Grid.Column="1" HorizontalAlignment="Left" Margin="11,449,0,0" VerticalAlignment="Top" Width="378"/>
+        <Label Content="Apellido:" FontSize="30" x:Name="lblApellido" Grid.Column="1" Margin="11,502,411,0" VerticalAlignment="Top"/>
+        <Label Content="Fecha de Registro:" FontSize="30" x:Name="lblFechaHoraAlta" Grid.Column="1" Margin="11,550,168,0" VerticalAlignment="Top"/>
         <Label Content="" x:Name="lblStatus" Height="53" Margin="10,0,465,10" VerticalAlignment="Bottom" Grid.ColumnSpan="2"/>
         <Label Content="" x:Name="lblReport" Height="53" Margin="465,0,10,10" VerticalAlignment="Bottom" Grid.Column="1" Grid.ColumnSpan="2" />
-        
-        
+
+
     </Grid>
 </Window>

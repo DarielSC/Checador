@@ -45,7 +45,8 @@ namespace chk.Servicios
                                         Apellido = dr["Apellido"]?.ToString() ?? string.Empty,
                                         Cargo = dr["Cargo"]?.ToString() ?? string.Empty,
                                         Foto = dr["Foto"]?.ToString() ?? string.Empty,
-                                        Huella = dr["Huella"] != DBNull.Value ? (byte[])dr["Huella"] : Array.Empty<byte>()
+                                        Huella = dr["Huella"] != DBNull.Value ? (byte[])dr["Huella"] : Array.Empty<byte>(),
+                                        FechaHoraAlta = dr["FechaHoraAlta"] != DBNull.Value ? Convert.ToDateTime(dr["FechaHoraAlta"]) : default
                                     };
 
                                     listaEmpleados.Add(emp);
@@ -61,7 +62,7 @@ namespace chk.Servicios
             }
 
             return listaEmpleados;  
-        }
+        }   
 
         public static int AltaEmpleado(Empleado empleado)
         {
