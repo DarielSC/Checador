@@ -13,13 +13,18 @@
             <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
         <Image Grid.Column="1" x:Name="ImgPerfil" HorizontalAlignment="Left" Height="332" Margin="246,10,0,0" VerticalAlignment="Top" Width="337"/>
-        <Label Content="Matricula:" FontSize="30" x:Name="lblMatricula" Grid.Column="1" HorizontalAlignment="Left" Margin="11,396,0,0" VerticalAlignment="Top" Width="378"/>
-        <Label Content="Nombre:" FontSize="30" x:Name="lblNombre" Grid.Column="1" HorizontalAlignment="Left" Margin="11,449,0,0" VerticalAlignment="Top" Width="378"/>
-        <Label Content="Apellido:" FontSize="30" x:Name="lblApellido" Grid.Column="1" Margin="11,502,411,0" VerticalAlignment="Top"/>
-        <Label Content="Fecha de Registro:" FontSize="30" x:Name="lblFechaHoraAlta" Grid.Column="1" Margin="11,550,168,0" VerticalAlignment="Top"/>
+        <Label Content="Matricula:" FontSize="30" x:Name="lblMatricula" Grid.Column="1" HorizontalAlignment="Left" Margin="11,396,0,0" VerticalAlignment="Top" Width="279"/>
+        <Label Content="Cargo:" FontSize="30" x:Name="lblCargo" Grid.Column="1" HorizontalAlignment="Left" Margin="10,573,0,0" VerticalAlignment="Top" Width="390"/>
+        <Label Content="Departamento:" FontSize="30" x:Name="lblDepartamento" Grid.Column="1" HorizontalAlignment="Left" Margin="268,396,0,0" VerticalAlignment="Top" Width="388"/>
+        <Label Content="Nombre:" FontSize="30" x:Name="lblNombre" Grid.Column="1" HorizontalAlignment="Left" Margin="11,449,0,0" VerticalAlignment="Top" Width="279"/>
+        <Label Content="Apellido:" FontSize="30" x:Name="lblApellido" Grid.Column="1" Margin="11,502,510,0" VerticalAlignment="Top"/>
         <Label Content="" x:Name="lblStatus" Height="53" Margin="10,0,465,10" VerticalAlignment="Bottom" Grid.ColumnSpan="2"/>
-        <Label Content="" x:Name="lblReport" Height="53" Margin="465,0,10,10" VerticalAlignment="Bottom" Grid.Column="1" Grid.ColumnSpan="2" />
-
+        <Label Content="" x:Name="lblReport" Height="53" Margin="465,0,10,10" VerticalAlignment="Bottom" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnEmpleados"
+                    Margin="662,449,0,0"
+                    VerticalAlignment="Top"
+                    Style="{StaticResource MaterialDesignFloatingActionMiniButton}" HorizontalAlignment="Left" Width="72" Click="btnEmpleados_Click" Grid.Column="1" Height="72"/>
+        <Label Grid.Column="1" Content="Ver Tabla de Asistencia" HorizontalAlignment="Left" Margin="597,541,0,0" VerticalAlignment="Top" Width="203" FontSize="18"/>
 
     </Grid>
 </Window>

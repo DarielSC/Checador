@@ -1,0 +1,32 @@
+﻿<Window x:Class="chk.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:chk"
+        mc:Ignorable="d"
+        Title="TablaRegistroDeAsistencia" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <DataGrid ItemsSource="{Binding}" x:Name="dgFechaHoraAsistencia" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,112,85,111" SelectionChanged="dgFechaHoraAsistencia_SelectionChanged">
+
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}"/>
+            </DataGrid.ColumnHeaderStyle>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="IDRegistro" Binding="{Binding IDRegistro}" Visibility="Hidden"/>
+                <DataGridTextColumn Header="Matricula" Binding="{Binding Matricula}"/>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
+                <DataGridTextColumn Header="Apellido" Binding="{Binding Apellido}" />
+                <DataGridTextColumn Header="Departamento" Binding="{Binding Departamento}" />
+                <DataGridTextColumn Header="Cargo" Binding="{Binding Cargo}"/>
+                <DataGridTextColumn Header="FechaHoraAsistencia" Binding="{Binding FechaHoraAsistencia}"/>
+                <DataGridTextColumn Header="MotivoFalta" Binding="{Binding MotivoFalta}"/>
+                <DataGridTextColumn Header="Foto" Binding="{Binding Foto}" Visibility="Hidden"/>
+                <DataGridTextColumn Header="Huella" Binding="{Binding Huella}" Visibility="Hidden"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Tablero de Asistencia" HorizontalAlignment="Center" Margin="0,29,0,0" VerticalAlignment="Top" FontFamily="Arial Black" Foreground="#08426c" FontSize="40" Width="500"/>
+
+    </Grid>
+</Window>

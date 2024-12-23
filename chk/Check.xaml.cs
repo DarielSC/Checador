@@ -74,6 +74,7 @@ namespace chk
                         {
                             this.Dispatcher.Invoke(new Function(delegate () {
                                 Desplegar(empleado);
+                                RegistrarAsistencia(empleado);
                             }));
                             break;
                         }
@@ -143,7 +144,9 @@ namespace chk
             lblMatricula.Content = empleado.Matricula;
             lblNombre.Content = empleado.Nombre;
             lblApellido.Content = empleado.Apellido;
-            lblFechaHoraAlta.Content = empleado.FechaHoraAlta;
+            lblCargo.Content = empleado.Cargo;
+            lblDepartamento.Content = empleado.Departamento;
+            
             if (empleado.Foto != "" && empleado.Foto != null)
             {
                 url = "C:/Chk/" + empleado.Foto;
@@ -216,8 +219,54 @@ namespace chk
                 }));
             */
         }
+
         #endregion
 
+        private void RegistrarAsistencia(Empleado empleado)
+        {
+            try
+            {
+                // Crear el objeto de asistencia
+                var asistencia = new Asistencia
+                {
+                    Matricula = empleado.Matricula,
+                    Nombre = empleado.Nombre,
+                    Apellido = empleado.Apellido,
+                    Cargo = empleado.Cargo,
+                    Departamento = empleado.Departamento,
+                    FechaHoraAsistencia = DateTime.Now,
+                    MotivoFalta = null, // MotivoFalta puede ser nulo si no aplica
+                    Huella = empleado.Huella
+                };
 
+                // Verificar si ya existe un registro duplicado
+
+
+                // Registrar en la base de datos
+                int resultado = DatoAsistencia.RegistrarAsistencia(asistencia);
+
+                if (resultado > 0)
+                {
+                    System.Windows.MessageBox.Show("Asistencia registrada exitosamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    System.Windows.MessageBox.Show("Hubo un problema al registrar la asistencia.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show($"Error al registrar asistencia: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+
+
+
+        private void btnEmpleados_Click(object sender, RoutedEventArgs e)
+        {
+            Window1 emp = new Window1();
+            emp.Show();
+        }
     }
 }
