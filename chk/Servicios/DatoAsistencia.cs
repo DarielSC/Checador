@@ -8,6 +8,7 @@ using System.Data.Common;
 using System.Data;
 using MySql.Data.MySqlClient;
 using System.Windows;
+
 namespace chk.Servicios
 {
     public class DatoAsistencia
@@ -42,7 +43,6 @@ namespace chk.Servicios
                                         Departamento = dr["Departamento"]?.ToString() ?? string.Empty,
                                         Nombre = dr["Nombre"]?.ToString() ?? string.Empty,
                                         Apellido = dr["Apellido"]?.ToString() ?? string.Empty,  
-                                        MotivoFalta = dr["MotivoFalta"]?.ToString() ?? string.Empty,
                                         Cargo = dr["Cargo"]?.ToString() ?? string.Empty,
                                         Huella = dr["Huella"] != DBNull.Value ? (byte[])dr["Huella"] : Array.Empty<byte>(),
                                         FechaHoraAsistencia = dr["FechaHoraAsistencia"] != DBNull.Value ? Convert.ToDateTime(dr["FechaHoraAsistencia"]) : default
@@ -63,6 +63,9 @@ namespace chk.Servicios
             return listaAsistencia;
         }
 
+
+
+
         public static int RegistrarAsistencia(Asistencia asistencia)
         {
             int res = 0;
@@ -72,6 +75,14 @@ namespace chk.Servicios
                 using (var conn = new MySqlConnection("Server=localhost;Database=Checador;Uid=root;Pwd=root1234;SslMode=none;"))
                 {
                     conn.Open();
+
+                    // Verificar la cantidad de registros de la huella en el día actual
+                    int cantidadRegistros = CantidadRegistrosPorDia(asistencia.Huella);
+                    if (cantidadRegistros == -1) return 0; // Indica error en la consulta
+                    if (cantidadRegistros >= 2)
+                    {
+                        return -2; // Retorna -2 si ya tiene 2 registros en el día
+                    }
 
                     using (var command = conn.CreateCommand())
                     {
@@ -89,12 +100,6 @@ namespace chk.Servicios
                         command.Parameters.Add(new MySqlParameter("pFechaHoraAsistencia", MySqlDbType.Timestamp)
                         {
                             Value = asistencia.FechaHoraAsistencia ?? DateTime.Now
-                        });
-
-                        // Asigna MotivoFalta, usa DBNull.Value si es nulo
-                        command.Parameters.Add(new MySqlParameter("pMotivoFalta", MySqlDbType.VarChar)
-                        {
-                            Value = asistencia.MotivoFalta ?? (object)DBNull.Value
                         });
 
                         // Asigna Huella, usa DBNull.Value si es nulo
@@ -123,5 +128,39 @@ namespace chk.Servicios
             return res;
         }
 
+
+        public static int CantidadRegistrosPorDia(byte[] huella)
+        {
+            int cantidad = 0;
+
+            try
+            {
+                using (var conn = new MySqlConnection("Server=localhost;Database=Checador;Uid=root;Pwd=root1234;SslMode=none;"))
+                {
+                    conn.Open();
+
+                    using (var command = conn.CreateCommand())
+                    {
+                        command.CommandType = CommandType.Text;
+                        command.CommandText = @"SELECT COUNT(*) 
+                                                FROM Asistencia 
+                                                WHERE Huella = @Huella 
+                                                AND DATE(FechaHoraAsistencia) = CURDATE()";
+
+                        command.Parameters.Add(new MySqlParameter("@Huella", MySqlDbType.Blob) { Value = huella });
+
+                        cantidad = Convert.ToInt32(command.ExecuteScalar());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al verificar registros por día: " + ex.Message, "Error");
+            }
+
+            return cantidad;
+        }
     }
 }
+
+    

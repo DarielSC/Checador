@@ -21,10 +21,11 @@
         <Label Content="" x:Name="lblStatus" Height="53" Margin="10,0,465,10" VerticalAlignment="Bottom" Grid.ColumnSpan="2"/>
         <Label Content="" x:Name="lblReport" Height="53" Margin="465,0,10,10" VerticalAlignment="Bottom" Grid.Column="1" Grid.ColumnSpan="2"/>
         <Button x:Name="btnEmpleados"
-                    Margin="662,449,0,0"
+                    Margin="656,417,0,0"
                     VerticalAlignment="Top"
                     Style="{StaticResource MaterialDesignFloatingActionMiniButton}" HorizontalAlignment="Left" Width="72" Click="btnEmpleados_Click" Grid.Column="1" Height="72"/>
-        <Label Grid.Column="1" Content="Ver Tabla de Asistencia" HorizontalAlignment="Left" Margin="597,541,0,0" VerticalAlignment="Top" Width="203" FontSize="18"/>
+        <Label Grid.Column="1" Content="Ver Tabla de Asistencia" HorizontalAlignment="Left" Margin="598,494,0,0" VerticalAlignment="Top" Width="202" FontSize="18"/>
+        <Button x:Name="btnFaltas" Grid.Column="1" Content=" Ver Tabla de Faltas" HorizontalAlignment="Left" Margin="596,551,0,0" VerticalAlignment="Top" Click="btnFaltas_Click" Width="192"/>
 
     </Grid>
 </Window>

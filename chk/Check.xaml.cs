@@ -235,7 +235,6 @@ namespace chk
                     Cargo = empleado.Cargo,
                     Departamento = empleado.Departamento,
                     FechaHoraAsistencia = DateTime.Now,
-                    MotivoFalta = null, // MotivoFalta puede ser nulo si no aplica
                     Huella = empleado.Huella
                 };
 
@@ -251,7 +250,7 @@ namespace chk
                 }
                 else
                 {
-                    System.Windows.MessageBox.Show("Hubo un problema al registrar la asistencia.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    System.Windows.MessageBox.Show("Solo puede checar dos veces al dia.", "Excepción", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             catch (Exception ex)
@@ -267,6 +266,12 @@ namespace chk
         {
             Window1 emp = new Window1();
             emp.Show();
+        }
+
+        private void btnFaltas_Click(object sender, RoutedEventArgs e)
+        {
+            Faltas faltas = new Faltas();
+            faltas.Show();
         }
     }
 }

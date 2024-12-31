@@ -1,0 +1,71 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:chk"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="chk.Faltas"
+        mc:Ignorable="d"
+        Title="Faltas" Height="720" Width="1000" Loaded="Window_Loaded">
+    <Grid Cursor="Hand">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="800"/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+        <TextBox
+        VerticalAlignment="Top"
+        materialDesign:HintAssist.Hint="Matricula:" x:Name="tbMatricula"
+        Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="1" Margin="64,278,459,0" Height="33" />
+        <TextBox
+            VerticalAlignment="Top"
+            materialDesign:HintAssist.Hint="Nombre:" x:Name="tbNombre"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="1" Margin="64,344,459,0" Height="33" />
+        <TextBox
+            VerticalAlignment="Top"
+            materialDesign:HintAssist.Hint="Apellido:" x:Name="tbApellido"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="1" Margin="64,409,460,0" Height="32" />
+        <TextBox
+            VerticalAlignment="Top"
+            materialDesign:HintAssist.Hint="Cargo:" x:Name="tbCargo"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="1" Margin="64,532,459,0" Height="36" />
+        <TextBox
+            VerticalAlignment="Top"
+            materialDesign:HintAssist.Hint="Departamento:" x:Name="tbDepartamento"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="1" Margin="64,471,460,0" Height="33" />
+        <Label Content="Motivo Falta:" Grid.Column="1" HorizontalAlignment="Left" Margin="400,278,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cbMotivoFalta" Grid.Column="1" HorizontalAlignment="Left" Margin="400,295,0,0" VerticalAlignment="Top" Width="277" SelectionChanged="ComboBox_SelectionChanged">
+            <ComboBoxItem>Licencia</ComboBoxItem>
+            <ComboBoxItem>Vacaciones</ComboBoxItem>
+            <ComboBoxItem>Azueto</ComboBoxItem>
+            <ComboBoxItem>Rebaja Domiciliada</ComboBoxItem>
+            <ComboBoxItem>Por Nupcias</ComboBoxItem>
+            <ComboBoxItem>Comision de Servicio</ComboBoxItem>
+            <ComboBoxItem>Maternidad</ComboBoxItem>
+            <ComboBoxItem>Permiso para llegar tarde</ComboBoxItem>
+            <ComboBoxItem>FALTA NO JUSTIFICADA</ComboBoxItem>
+        </ComboBox>
+        <Button x:Name="btnGuardar" Grid.Column="1" Content="Guardar Falta" HorizontalAlignment="Center" Margin="0,614,0,0" VerticalAlignment="Top" Click="btnGuardar_Click"/>
+        <Button x:Name="btnSeleccionar" Grid.Column="1" Content="Seleccionar motivo de falta" HorizontalAlignment="Left" Margin="436,532,0,0" VerticalAlignment="Top" Click="btnSeleccionar_Click"/>
+        <Label Content="Fecha Inicio Falta:" Grid.Column="1" HorizontalAlignment="Left" Margin="398,335,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="dpFechaInicioFalta" Grid.Column="1" HorizontalAlignment="Left" Margin="400,364,0,0" VerticalAlignment="Top"/>
+        <Label Content="Fecha Fin Falta:" Grid.Column="1" HorizontalAlignment="Left" Margin="395,424,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="dpFechaFinFalta" Grid.Column="1" HorizontalAlignment="Left" Margin="400,448,0,0" VerticalAlignment="Top"/>
+        <DataGrid ItemsSource="{Binding}" x:Name="dgFaltas" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="35,26,15,0" SelectionChanged="dgFaltas_SelectionChanged" Height="213" VerticalAlignment="Top" Grid.ColumnSpan="3">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}"/>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="IDFalta" Binding="{Binding IDFalta}" Visibility="Hidden"/>
+                <DataGridTextColumn Header="Matricula" Binding="{Binding Matricula}"/>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
+                <DataGridTextColumn Header="Apellido" Binding="{Binding Apellido}"/>
+                <DataGridTextColumn Header="Departamento" Binding="{Binding Departamento}"/>
+                <DataGridTextColumn Header="Cargo" Binding="{Binding Cargo}"/>
+                <DataGridTextColumn Header="MotivoFalta" Binding="{Binding MotivoFalta}"/>
+                <DataGridTextColumn Header="FechaInicioFalta" Binding="{Binding FechaInicioFalta}"/>
+                <DataGridTextColumn Header="FechaFinFalta" Binding="{Binding FechaFinFalta}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
