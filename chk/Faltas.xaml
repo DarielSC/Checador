@@ -42,10 +42,13 @@
             <ComboBoxItem>Por Nupcias</ComboBoxItem>
             <ComboBoxItem>Comision de Servicio</ComboBoxItem>
             <ComboBoxItem>Maternidad</ComboBoxItem>
+            <ComboBoxItem>Cita medica local</ComboBoxItem>
+            <ComboBoxItem>Cita medica foranea</ComboBoxItem>
+            <ComboBoxItem>Acompañante de cita medica</ComboBoxItem>
             <ComboBoxItem>Permiso para llegar tarde</ComboBoxItem>
             <ComboBoxItem>FALTA NO JUSTIFICADA</ComboBoxItem>
         </ComboBox>
-        <Button x:Name="btnGuardar" Grid.Column="1" Content="Guardar Falta" HorizontalAlignment="Center" Margin="0,614,0,0" VerticalAlignment="Top" Click="btnGuardar_Click"/>
+        <Button x:Name="btnGuardar" Grid.Column="1" Content="Guardar Falta" HorizontalAlignment="Left" Margin="436,617,0,0" VerticalAlignment="Top" Click="btnGuardar_Click"/>
         <Button x:Name="btnSeleccionar" Grid.Column="1" Content="Seleccionar motivo de falta" HorizontalAlignment="Left" Margin="436,532,0,0" VerticalAlignment="Top" Click="btnSeleccionar_Click"/>
         <Label Content="Fecha Inicio Falta:" Grid.Column="1" HorizontalAlignment="Left" Margin="398,335,0,0" VerticalAlignment="Top"/>
         <DatePicker x:Name="dpFechaInicioFalta" Grid.Column="1" HorizontalAlignment="Left" Margin="400,364,0,0" VerticalAlignment="Top"/>
@@ -67,5 +70,6 @@
                 <DataGridTextColumn Header="FechaFinFalta" Binding="{Binding FechaFinFalta}"/>
             </DataGrid.Columns>
         </DataGrid>
+        <Button x:Name="btnActualizarFalta" Content="Actualizar Falta" HorizontalAlignment="Left" Margin="146,617,0,0" VerticalAlignment="Top" Grid.Column="1" Width="145" Click="btnActualizarFalta_Click"/>
     </Grid>
 </Window>

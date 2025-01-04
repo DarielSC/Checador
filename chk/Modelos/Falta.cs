@@ -18,7 +18,7 @@ namespace chk.Modelos
         public string Cargo { get; set; } = string.Empty;
         public string MotivoFalta { get; set; } = string.Empty;
         public DateTime FechaInicioFalta { get; set; }
-        public DateTime FechaFinFalta { get; set; }
+        public DateTime? FechaFinFalta { get; set; }
 
     }
 }

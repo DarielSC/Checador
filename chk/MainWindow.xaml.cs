@@ -33,5 +33,11 @@ namespace chk
             Check check = new Check();
             check.Show();
         }
+
+        private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
     }
 }
