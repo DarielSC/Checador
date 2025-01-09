@@ -27,7 +27,7 @@ namespace chk
         public Window1()
         {
             InitializeComponent();
-        }
+        }                                       
 
         private void dgFechaHoraAsistencia_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

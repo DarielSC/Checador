@@ -10,6 +10,7 @@ namespace chk.Modelos
     {
 
         public Falta() { }
+        //Atributos de la clase falta
         public int IDFalta { get; set; }
         public string Matricula { get; set; } = string.Empty;
         public string Departamento { get; set; } = string.Empty;
@@ -17,7 +18,7 @@ namespace chk.Modelos
         public string Apellido { get; set; } = string.Empty;
         public string Cargo { get; set; } = string.Empty;
         public string MotivoFalta { get; set; } = string.Empty;
-        public DateTime FechaInicioFalta { get; set; }
+        public DateTime?FechaInicioFalta { get; set; }
         public DateTime? FechaFinFalta { get; set; }
 
     }

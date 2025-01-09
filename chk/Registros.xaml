@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="TablaRegistroDeAsistencia" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
-        <DataGrid ItemsSource="{Binding}" x:Name="dgFechaHoraAsistencia" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,112,0,111" SelectionChanged="dgFechaHoraAsistencia_SelectionChanged" HorizontalAlignment="Center" Width="682">
+        <DataGrid ItemsSource="{Binding}" x:Name="dgFechaHoraAsistencia" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,112,0,111" SelectionChanged="dgFechaHoraAsistencia_SelectionChanged" HorizontalAlignment="Center" Width="780">
 
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="{x:Type DataGridColumnHeader}"/>

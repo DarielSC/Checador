@@ -13,15 +13,16 @@ namespace chk.Servicios
 {
     public class DatoEmpleado
     {
-        public DatoEmpleado() { }   
-
+        public DatoEmpleado() { }
+        //Método para mostrar los empleados
         public static List<Empleado> MuestraEmpleado()
         {
             List<Empleado> listaEmpleados = new List<Empleado>();
 
             try
             {
-                using (var conn = new MySqlConnection("Server=localhost;Database=Checador;Uid=root;Pwd=root1234;SslMode=none;"))
+                // Usa el método GetConnection de la clase DatabaseHelper
+                using (var conn = DatabaseHelper.GetConnection())
                 {
                     conn.Open();
 
@@ -44,7 +45,6 @@ namespace chk.Servicios
                                         Nombre = dr["Nombre"]?.ToString() ?? string.Empty,
                                         Apellido = dr["Apellido"]?.ToString() ?? string.Empty,
                                         Cargo = dr["Cargo"]?.ToString() ?? string.Empty,
-                                        Foto = dr["Foto"]?.ToString() ?? string.Empty,
                                         Huella = dr["Huella"] != DBNull.Value ? (byte[])dr["Huella"] : Array.Empty<byte>(),
                                         FechaHoraAlta = dr["FechaHoraAlta"] != DBNull.Value ? Convert.ToDateTime(dr["FechaHoraAlta"]) : default
                                     };
@@ -56,21 +56,24 @@ namespace chk.Servicios
                     }
                 }
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
-                MessageBox.Show("Ocurrió un error al consultar Empleados" + ex.Message, "Error");
+                MessageBox.Show("Ocurrió un error al consultar Empleados: " + ex.Message, "Error");
             }
 
-            return listaEmpleados;  
-        }   
+            return listaEmpleados;
+        }
 
+
+
+        //Método para dar de alta a un empleados
         public static int AltaEmpleado(Empleado empleado)
         {
             int res = 0;
 
             try
             {
-                using (var conn = new MySqlConnection("Server=localhost;Database=Checador;Uid=root;Pwd=root1234;SslMode=none;"))
+                using (var conn = DatabaseHelper.GetConnection())
                 {
                     conn.Open();
 
@@ -85,9 +88,6 @@ namespace chk.Servicios
                         command.Parameters.Add(new MySqlParameter("pNombre", MySqlDbType.VarChar) { Value = empleado.Nombre });
                         command.Parameters.Add(new MySqlParameter("pApellido", MySqlDbType.VarChar) { Value = empleado.Apellido });
                         command.Parameters.Add(new MySqlParameter("pDepartamento", MySqlDbType.VarChar) { Value=empleado.Departamento});
-
-                        // Asignar la foto como string (ruta) o como byte[] según sea el caso
-                        command.Parameters.Add(new MySqlParameter("pFoto", MySqlDbType.VarChar) { Value = empleado.Foto });
 
                         // Asignar la huella como byte[]
                         command.Parameters.Add(new MySqlParameter("pHuella", MySqlDbType.Blob) { Value = empleado.Huella });

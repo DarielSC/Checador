@@ -15,7 +15,7 @@ namespace chk
     /// <summary>
     /// Lógica de interacción para Check.xaml
     /// </summary>
-    public partial class Check : Window, DPFP.Capture.EventHandler
+    public partial class Check : Window, DPFP.Capture.EventHandler //hereda de la clase Window y de la interfaz DPFP.Capture.EventHandler
     {
         private DPFP.Template Template;
         private DPFP.Verification.Verification Verificator;
@@ -42,7 +42,8 @@ namespace chk
             }
         }
 
-        protected  void Process(DPFP.Sample Sample)
+        //Metodo para procesar la muestra de la huella
+        protected void Process(DPFP.Sample Sample) 
         {
             
 
@@ -72,9 +73,9 @@ namespace chk
                         Verificator.Verify(features, template, ref result);
                         if (result.Verified)
                         {
-                            this.Dispatcher.Invoke(new Function(delegate () {
-                                Desplegar(empleado);
-                                RegistrarAsistencia(empleado);
+                            this.Dispatcher.Invoke(new Function(delegate () { 
+                                Desplegar(empleado); // Llama al metodo para desplegar los datos del empleado
+                                RegistrarAsistencia(empleado); //Llama al metodo para registrar la asistencia
                             }));
                             break;
                         }
@@ -137,7 +138,7 @@ namespace chk
         }
 
 
-
+        //Metodo para desplegar los datos del empleado
         public void Desplegar (Empleado empleado)
         {
             string url = "";
@@ -146,22 +147,7 @@ namespace chk
             lblApellido.Content = empleado.Apellido;
             lblCargo.Content = empleado.Cargo;
             lblDepartamento.Content = empleado.Departamento;
-            
-            if (empleado.Foto != "" && empleado.Foto != null)
-            {
-                url = "C:/Chk/" + empleado.Foto;
-            }
-            else
-                url = "C:/Chk/noimage.png";
-
-            BitmapImage foto = new BitmapImage();
-            foto.BeginInit();
-            foto.UriSource = new Uri(url);
-            foto.EndInit();
-            foto.Freeze();
-
-            ImgPerfil.Source = foto; 
-            
+                       
         }
 
         #region EventHandler Members:
@@ -222,6 +208,7 @@ namespace chk
 
         #endregion
 
+        //Metodo para registrar la asistencia del empleado con la huella
         private void RegistrarAsistencia(Empleado empleado)
         {
             try
@@ -237,9 +224,6 @@ namespace chk
                     FechaHoraAsistencia = DateTime.Now,
                     Huella = empleado.Huella
                 };
-
-                // Verificar si ya existe un registro duplicado
-
 
                 // Registrar en la base de datos
                 int resultado = DatoAsistencia.RegistrarAsistencia(asistencia);
@@ -261,13 +245,14 @@ namespace chk
 
 
 
-
+        //Metodo para abrir la ventana del registro de asistencias
         private void btnEmpleados_Click(object sender, RoutedEventArgs e)
         {
             Window1 emp = new Window1();
             emp.Show();
         }
 
+        //Metodo para abrir la ventana del registro de faltas
         private void btnFaltas_Click(object sender, RoutedEventArgs e)
         {
             Faltas faltas = new Faltas();

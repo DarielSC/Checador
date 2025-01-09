@@ -9,7 +9,7 @@ namespace chk.Modelos
     public class Asistencia
     {
         public Asistencia() { }
-
+        //Atributos de la clase Asistencia
         public int IDRegistro { get; set; }
         public string Matricula { get; set; } = string.Empty;
         public string Departamento { get; set; } = string.Empty;

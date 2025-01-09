@@ -54,7 +54,7 @@
         <DatePicker x:Name="dpFechaInicioFalta" Grid.Column="1" HorizontalAlignment="Left" Margin="400,364,0,0" VerticalAlignment="Top"/>
         <Label Content="Fecha Fin Falta:" Grid.Column="1" HorizontalAlignment="Left" Margin="395,424,0,0" VerticalAlignment="Top"/>
         <DatePicker x:Name="dpFechaFinFalta" Grid.Column="1" HorizontalAlignment="Left" Margin="400,448,0,0" VerticalAlignment="Top"/>
-        <DataGrid ItemsSource="{Binding}" x:Name="dgFaltas" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="35,26,15,0" SelectionChanged="dgFaltas_SelectionChanged" Height="213" VerticalAlignment="Top" Grid.ColumnSpan="3">
+        <DataGrid ItemsSource="{Binding}" x:Name="dgFaltas" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="35,26,0,0" SelectionChanged="dgFaltas_SelectionChanged" Height="213" VerticalAlignment="Top" Grid.ColumnSpan="3" HorizontalAlignment="Left" Width="950">
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="{x:Type DataGridColumnHeader}"/>
             </DataGrid.ColumnHeaderStyle>
@@ -63,7 +63,7 @@
                 <DataGridTextColumn Header="Matricula" Binding="{Binding Matricula}"/>
                 <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
                 <DataGridTextColumn Header="Apellido" Binding="{Binding Apellido}"/>
-                <DataGridTextColumn Header="Departamento" Binding="{Binding Departamento}"/>
+                <DataGridTextColumn Header="Departamento" Binding="{Binding Departamento}"  Visibility="Hidden"/>
                 <DataGridTextColumn Header="Cargo" Binding="{Binding Cargo}"/>
                 <DataGridTextColumn Header="MotivoFalta" Binding="{Binding MotivoFalta}"/>
                 <DataGridTextColumn Header="FechaInicioFalta" Binding="{Binding FechaInicioFalta}"/>

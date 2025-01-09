@@ -11,17 +11,18 @@ using System.Windows;
 
 namespace chk.Servicios
 {
+    //Clase para manejar los datos de la asistencia
     public class DatoAsistencia
     {
         public DatoAsistencia() { }
-
+        //Metodo para mostrar la asistencia
         public static List<Asistencia> MuestraAsistencia()
         {
             List<Asistencia> listaAsistencia = new List<Asistencia>();
 
             try
             {
-                using (var conn = new MySqlConnection("Server=localhost;Database=Checador;Uid=root;Pwd=root1234;SslMode=none;"))
+                using (var conn = DatabaseHelper.GetConnection())
                 {
                     conn.Open();
 
@@ -65,14 +66,14 @@ namespace chk.Servicios
 
 
 
-
+        //Metodo para registrar la asistencia
         public static int RegistrarAsistencia(Asistencia asistencia)
         {
             int res = 0;
 
             try
             {
-                using (var conn = new MySqlConnection("Server=localhost;Database=Checador;Uid=root;Pwd=root1234;SslMode=none;"))
+                using (var conn = DatabaseHelper.GetConnection())
                 {
                     conn.Open();
 
@@ -128,14 +129,14 @@ namespace chk.Servicios
             return res;
         }
 
-
+        //Metodo para verificar la cantidad de registros por día
         public static int CantidadRegistrosPorDia(byte[] huella)
         {
             int cantidad = 0;
 
             try
             {
-                using (var conn = new MySqlConnection("Server=localhost;Database=Checador;Uid=root;Pwd=root1234;SslMode=none;"))
+                using (var conn = DatabaseHelper.GetConnection())
                 {
                     conn.Open();
 

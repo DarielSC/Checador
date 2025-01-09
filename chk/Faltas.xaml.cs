@@ -162,7 +162,36 @@ namespace chk
 
         private void btnActualizarFalta_Click(object sender, RoutedEventArgs e)
         {
-                
+            Falta faltaSeleccionada = (Falta)dgFaltas.SelectedItem;
+
+            if (faltaSeleccionada == null)
+            {
+                MessageBox.Show("Por favor, selecciona una falta para modificar.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            // Actualiza los valores del objeto Falta
+            faltaSeleccionada.Matricula = tbMatricula.Text;
+            faltaSeleccionada.Nombre = tbNombre.Text;
+            faltaSeleccionada.Apellido = tbApellido.Text;
+            faltaSeleccionada.Departamento = tbDepartamento.Text;
+            faltaSeleccionada.Cargo = tbCargo.Text;
+            faltaSeleccionada.FechaInicioFalta = dpFechaInicioFalta.SelectedDate;
+            faltaSeleccionada.FechaFinFalta = dpFechaFinFalta.SelectedDate;
+            faltaSeleccionada.MotivoFalta = cbMotivoFalta.Text;
+
+            // Llama al método de actualización
+            bool resultado = DatoFalta.ActualizarFalta(faltaSeleccionada);
+
+            if (resultado)
+            {
+                MessageBox.Show("Registro modificado con éxito.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                dgFaltas.Items.Refresh(); // Actualiza la interfaz
+            }
+            else
+            {
+                MessageBox.Show("No se pudo modificar el registro.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

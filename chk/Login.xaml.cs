@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Security.Cryptography;
 using MySql.Data.MySqlClient;
+using chk.Servicios;
 
 namespace chk
 {
@@ -46,7 +47,7 @@ namespace chk
         {
             try
             {
-                using (var conn = new MySqlConnection("Server=localhost;Database=Checador;Uid=root;Pwd=root1234;SslMode=none;"))
+                using (var conn = DatabaseHelper.GetConnection())
                 {
                     conn.Open();
 
