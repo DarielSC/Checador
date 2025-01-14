@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using chk.Servicios;
+using System.IO;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -39,5 +41,36 @@ namespace chk
             Application.Current.Shutdown();
         }
 
+        private void btnRespaldo_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                // Definir la ubicación del archivo de respaldo
+                string backupDirectory = @"C:\Respaldos";
+                string backupFile = System.IO.Path.Combine(backupDirectory, $"Respaldo_{DateTime.Now:yyyyMMdd_HHmmss}.sql");
+
+                // Crear el directorio si no existe
+                if (!Directory.Exists(backupDirectory))
+                {
+                    Directory.CreateDirectory(backupDirectory);
+                }
+
+                // Realizar el respaldo
+                bool resultado = DatabaseHelper.RespaldarBaseDeDatos(backupFile);
+
+                if (resultado)
+                {
+                    MessageBox.Show($"Respaldo realizado correctamente en:\n{backupFile}", "Éxito");
+                }
+                else
+                {
+                    MessageBox.Show("No fue posible realizar el respaldo", "Error");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al realizar el respaldo: " + ex.Message, "Error");
+            }
+        }
     }
 }

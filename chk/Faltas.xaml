@@ -7,7 +7,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="chk.Faltas"
         mc:Ignorable="d"
         Title="Faltas" Height="720" Width="1000" Loaded="Window_Loaded">
-    <Grid Cursor="Hand">
+    <Grid Cursor="Hand" Margin="0,0,0,15">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"/>
             <ColumnDefinition Width="800"/>
@@ -54,7 +54,7 @@
         <DatePicker x:Name="dpFechaInicioFalta" Grid.Column="1" HorizontalAlignment="Left" Margin="400,364,0,0" VerticalAlignment="Top"/>
         <Label Content="Fecha Fin Falta:" Grid.Column="1" HorizontalAlignment="Left" Margin="395,424,0,0" VerticalAlignment="Top"/>
         <DatePicker x:Name="dpFechaFinFalta" Grid.Column="1" HorizontalAlignment="Left" Margin="400,448,0,0" VerticalAlignment="Top"/>
-        <DataGrid ItemsSource="{Binding}" x:Name="dgFaltas" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="35,26,0,0" SelectionChanged="dgFaltas_SelectionChanged" Height="213" VerticalAlignment="Top" Grid.ColumnSpan="3" HorizontalAlignment="Left" Width="950">
+        <DataGrid ItemsSource="{Binding}" x:Name="dgFaltas" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,26,0,0" SelectionChanged="dgFaltas_SelectionChanged" Height="213" VerticalAlignment="Top" Grid.ColumnSpan="3" HorizontalAlignment="Left" Width="1043">
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="{x:Type DataGridColumnHeader}"/>
             </DataGrid.ColumnHeaderStyle>
@@ -70,6 +70,7 @@
                 <DataGridTextColumn Header="FechaFinFalta" Binding="{Binding FechaFinFalta}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="btnActualizarFalta" Content="Actualizar Falta" HorizontalAlignment="Left" Margin="146,617,0,0" VerticalAlignment="Top" Grid.Column="1" Width="145" Click="btnActualizarFalta_Click"/>
+        <TextBlock Name="txtClock" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="146,617,0,0" FontSize="16"/>
+        <Button x:Name="btnActualizarFalta" Content="Actualizar Falta" HorizontalAlignment="Left" Margin="130,617,0,0" VerticalAlignment="Top" Width="145" Click="btnActualizarFalta_Click" Grid.Column="1"/>
     </Grid>
 </Window>

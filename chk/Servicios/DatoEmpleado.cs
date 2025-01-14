@@ -77,6 +77,21 @@ namespace chk.Servicios
                 {
                     conn.Open();
 
+                    // Verificar si ya existe un empleado con la misma matrícula
+                    using (var checkCommand = conn.CreateCommand())
+                    {
+                        checkCommand.CommandType = CommandType.Text;
+                        checkCommand.CommandText = "SELECT COUNT(*) FROM Empleados WHERE Matricula = @Matricula";
+                        checkCommand.Parameters.Add(new MySqlParameter("@Matricula", MySqlDbType.VarChar) { Value = empleado.Matricula });
+
+                        int count = Convert.ToInt32(checkCommand.ExecuteScalar());
+                        if (count > 0)
+                        {
+                            return -1; // Indica que ya existe un empleado con la misma matrícula
+                        }
+                    }
+
+                    // Insertar el nuevo empleado
                     using (var command = conn.CreateCommand())
                     {
                         command.CommandType = CommandType.StoredProcedure;
@@ -87,7 +102,7 @@ namespace chk.Servicios
                         command.Parameters.Add(new MySqlParameter("pCargo", MySqlDbType.VarChar) { Value = empleado.Cargo });
                         command.Parameters.Add(new MySqlParameter("pNombre", MySqlDbType.VarChar) { Value = empleado.Nombre });
                         command.Parameters.Add(new MySqlParameter("pApellido", MySqlDbType.VarChar) { Value = empleado.Apellido });
-                        command.Parameters.Add(new MySqlParameter("pDepartamento", MySqlDbType.VarChar) { Value=empleado.Departamento});
+                        command.Parameters.Add(new MySqlParameter("pDepartamento", MySqlDbType.VarChar) { Value = empleado.Departamento });
 
                         // Asignar la huella como byte[]
                         command.Parameters.Add(new MySqlParameter("pHuella", MySqlDbType.Blob) { Value = empleado.Huella });
@@ -104,16 +119,43 @@ namespace chk.Servicios
                     }
                 }
             }
-            catch (Exception ex)     
+            catch (Exception ex)
             {
-                MessageBox.Show("Error al dar de alta al elemento" + ex.Message, "Error");
+                MessageBox.Show("Error al dar de alta al empleado: " + ex.Message, "Error");
             }
 
             return res;
-
         }
 
 
+        public static int EliminarEmpleado(string matricula)
+        {
+            int res = 0;
+
+            try
+            {
+                using (var conn = DatabaseHelper.GetConnection())
+                {
+                    conn.Open();
+
+                    using (var command = conn.CreateCommand())
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.CommandText = "EliminarEmpleado";
+
+                        command.Parameters.Add(new MySqlParameter("pMatricula", MySqlDbType.VarChar) { Value = matricula });
+
+                        res = command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar el empleado: " + ex.Message, "Error");
+            }
+
+            return res;
+        }
     }
 
 

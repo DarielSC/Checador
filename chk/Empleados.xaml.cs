@@ -6,6 +6,10 @@ using chk.Modelos;
 using System.IO;
 using chk.Servicios;
 using Enrollment;
+using DPFP;
+using DPFP.Verification;
+using chk;
+using System.Windows.Controls;
 
 namespace chk
 {
@@ -14,82 +18,81 @@ namespace chk
     /// </summary>
     public partial class Empleados : Window
     {
+
         public Empleados()
         {
             InitializeComponent();
+
         }
 
 
         //Metodo para guardar los datos del empleado
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            if(tbNombre.Text =="")
+            if (tbNombre.Text == "" || tbDepartamento.Text == "" || tbApellido.Text == "" || tbMatricula.Text == "" || tbCargo.Text == "")
             {
-                MessageBox.Show("El campo Nombre debe ser especificado", "Error");
-                return;
-            }
-
-            if (tbDepartamento.Text == "")
-            {
-                MessageBox.Show("El campo Departamento debe ser especificado", "Error");
-                return;
-            }
-
-            if (tbApellido.Text == "")
-            {
-                MessageBox.Show("El campo Apellido debe ser especificado", "Error");
-                return;
-            }
-
-            if (tbMatricula.Text == "") 
-            {
-                MessageBox.Show("El campo Matricula debe ser especificado", "Error");
-                return;
-            }
-
-            if (tbCargo.Text =="")
-            {
-                MessageBox.Show("El campo Cargo debe ser especificado", "Error");
+                MessageBox.Show("Todos los campos deben ser especificados.", "Error");
                 return;
             }
 
             if (Template == null)
             {
-                MessageBox.Show("La Huella del empleado debe ser especificado", "Error");
+                MessageBox.Show("Debe capturar la huella del empleado.", "Error");
+                return;
+            }
+
+            // Verificar si la huella ya está registrada
+            VerificationForm verificationForm = new VerificationForm();
+            verificationForm.Verify(Template);
+
+            if (verificationForm.HuellaVerificada)
+            {
+                
                 return;
             }
 
             try
             {
-                Empleado empleado = new Empleado();
-                empleado.Matricula = tbMatricula.Text;
-                empleado.Departamento = tbDepartamento.Text;
-                empleado.Nombre = tbNombre.Text;
-                empleado.Apellido = tbApellido.Text;
-                empleado.Cargo = tbCargo.Text;
-                empleado.Huella = Template.Bytes;
-
-
+                Empleado empleado = new Empleado
+                {
+                    Matricula = tbMatricula.Text,
+                    Departamento = tbDepartamento.Text,
+                    Nombre = tbNombre.Text,
+                    Apellido = tbApellido.Text,
+                    Cargo = tbCargo.Text,
+                    Huella = Template.Bytes
+                };
 
                 int id = DatoEmpleado.AltaEmpleado(empleado);
 
-                if (id > 0) 
+                if (id > 0)
                 {
-                    MessageBox.Show("Empleado guardado correctamente");
-                    tbNombre.Text = "";
-                    tbApellido.Text = "";
-                    tbDepartamento.Text = "";
-                    tbCargo.Text = "";
-                    tbMatricula.Text = "";
+                    LimpiarCampos();
                     dgEmpleados.DataContext = DatoEmpleado.MuestraEmpleado();
                 }
-
+                else if (id == -1)
+                {
+                    MessageBox.Show("Ya existe un empleado con la misma matrícula.", "Error");
+                }
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
-                MessageBox.Show("No fue posible guardar el empleado" + ex.Message, "Error en guardar");
+                MessageBox.Show($"Error al guardar el empleado: {ex.Message}", "Error");
             }
         }
+
+        private void LimpiarCampos()
+        {
+            tbNombre.Text = "";
+            tbApellido.Text = "";
+            tbDepartamento.Text = "";
+            tbCargo.Text = "";
+            tbMatricula.Text = "";
+            Template = null;
+            imgVerHuella.Visibility = Visibility.Hidden;
+        }
+
+
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -144,6 +147,59 @@ namespace chk
             }));
         }
 
+
+
         private DPFP.Template Template;
+
+
+
+        private void btnEliminar_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(tbMatricula.Text))
+            {
+                MessageBox.Show("El campo Matricula debe ser especificado", "Error");
+                return;
+            }
+
+            try
+            {
+                string matricula = tbMatricula.Text;
+                int resultado = DatoEmpleado.EliminarEmpleado(matricula);
+
+                if (resultado > 0)
+                {
+                    MessageBox.Show("Empleado eliminado correctamente");
+                    tbNombre.Text = "";
+                    tbApellido.Text = "";
+                    tbDepartamento.Text = "";
+                    tbCargo.Text = "";
+                    tbMatricula.Text = "";
+                    dgEmpleados.DataContext = DatoEmpleado.MuestraEmpleado();
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró un empleado con la matrícula especificada", "Error");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No fue posible eliminar el empleado: " + ex.Message, "Error");
+            }
+        }
+
+        private void btnListaAsis_Click(object sender, RoutedEventArgs e)
+        {
+            Window1 window1 = new Window1();
+            window1.Show();
+        }
+
+        private void btnListaFalta_Click(object sender, RoutedEventArgs e)
+        {
+            Faltas faltas = new Faltas();
+            faltas.Show();
+        }
+
+        
+
     }
 }

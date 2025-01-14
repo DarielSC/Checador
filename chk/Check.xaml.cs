@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Windows.Media.Imaging;
 
 
+
 namespace chk
 {
     /// <summary>
@@ -62,6 +63,7 @@ namespace chk
                 Stream stream;
 
                 List<Empleado> empleados = DatoEmpleado.MuestraEmpleado();
+                bool verified = false;
 
                 foreach(var empleado in empleados)
                 {
@@ -77,9 +79,18 @@ namespace chk
                                 Desplegar(empleado); // Llama al metodo para desplegar los datos del empleado
                                 RegistrarAsistencia(empleado); //Llama al metodo para registrar la asistencia
                             }));
+                            verified = true;
                             break;
                         }
                     }
+                }
+
+                if (!verified)
+                {
+                    this.Dispatcher.Invoke(new Function(delegate ()
+                    {
+                        System.Windows.MessageBox.Show($"HUELLA NO REGISTRADA", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }));
                 }
             }
         }

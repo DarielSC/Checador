@@ -28,6 +28,9 @@
     <Compile Update="Registros.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="VerificationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Check.xaml">
