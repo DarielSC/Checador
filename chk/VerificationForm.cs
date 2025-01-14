@@ -36,7 +36,7 @@ namespace Enrollment
         protected override void Init()
         {
             base.Init();
-            base.Text = "Verificación de Huella Digital";
+            base.Text = "Verificación de Duplicidad de Huella Digital";
             Verificator = new DPFP.Verification.Verification();     // Crear el verificador de huellas
             UpdateStatus(0);
         }
@@ -72,16 +72,16 @@ namespace Enrollment
                             {
                                 EmpleadoVerificado = empleado;
                                 HuellaVerificada = true;
-                                System.Windows.MessageBox.Show($"Huella ya registrada para: {empleado.Matricula}",
-                                    "Huella Verificada", MessageBoxButton.OK, MessageBoxImage.Warning);
+                                System.Windows.MessageBox.Show($"HUELLA YA REGISTRADA PARA: {empleado.Matricula}",
+                                    "HUELLA ENCONTRADA", MessageBoxButton.OK, MessageBoxImage.Warning);
                                 return;
                             }
                         }
                     }
                 }
 
-                System.Windows.MessageBox.Show("Huella no registrada en la base de datos.",
-                    "Verificación Fallida", MessageBoxButton.OK, MessageBoxImage.Information);
+                System.Windows.MessageBox.Show("Empleado Guardado Correctamente.",
+                    "Exito!", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
     }

@@ -49,7 +49,7 @@ namespace Enrollment
                 try
                 {
                     Capturer.StartCapture();
-                    SetPrompt("Using the fingerprint reader, scan your fingerprint.");
+                    SetPrompt("El Lector Está Listo, Por Favor Escanee Su Huella.");
                 }
                 catch
                 {
@@ -91,29 +91,30 @@ namespace Enrollment
 
 		public void OnComplete(object Capture, string ReaderSerialNumber, DPFP.Sample Sample)
 		{
-			MakeReport("The fingerprint sample was captured.");
-			SetPrompt("Scan the same fingerprint again.");
+			MakeReport("Se capturó la muestra de la huella.");
+			SetPrompt("Escanee nuevamente la misma huella.");
 			Process(Sample);
 		}
 
 		public void OnFingerGone(object Capture, string ReaderSerialNumber)
 		{
-			MakeReport("The finger was removed from the fingerprint reader.");
-		}
+			MakeReport("La huella fue removida del lector de huellas.");
+
+        }
 
 		public void OnFingerTouch(object Capture, string ReaderSerialNumber)
 		{
-			MakeReport("The fingerprint reader was touched.");
+			MakeReport("Se tocó el lector de huellas.");
 		}
 
 		public void OnReaderConnect(object Capture, string ReaderSerialNumber)
 		{
-			MakeReport("The fingerprint reader was connected.");
+			MakeReport("El lector de huellas está conectado.");
 		}
 
 		public void OnReaderDisconnect(object Capture, string ReaderSerialNumber)
 		{
-			MakeReport("The fingerprint reader was disconnected.");
+			MakeReport("El lector de huellas está desconectado...");
 		}
 
 		public void OnSampleQuality(object Capture, string ReaderSerialNumber, DPFP.Capture.CaptureFeedback CaptureFeedback)

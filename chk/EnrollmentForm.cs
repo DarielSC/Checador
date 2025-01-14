@@ -21,7 +21,7 @@ namespace Enrollment
 		protected override void Init()
 		{
 			base.Init();
-			base.Text = "Fingerprint Enrollment";
+			base.Text = "Registro de Huellas";
 			Enroller = new DPFP.Processing.Enrollment();			// Create an enrollment.
 			UpdateStatus();
 		}
@@ -36,7 +36,7 @@ namespace Enrollment
 			// Check quality of the sample and add to enroller if it's good
 			if (features != null) try
 			{
-				MakeReport("The fingerprint feature set was created.");
+				MakeReport("Se creó el features de la huella.");
 				Enroller.AddFeatures(features);		// Add feature set to template.
 			}
 			finally {
@@ -47,7 +47,7 @@ namespace Enrollment
 				{
 					case DPFP.Processing.Enrollment.Status.Ready:	// report success and stop capturing
 						OnTemplate(Enroller.Template);
-						SetPrompt("Click Close, and then click Fingerprint Verification.");
+						SetPrompt("Click en Close, y luego click en Guardar.");
 						Stop();
 						break;
 
@@ -65,7 +65,7 @@ namespace Enrollment
 		private void UpdateStatus()
 		{
 			// Show number of samples needed.
-			SetStatus(String.Format("Fingerprint samples needed: {0}", Enroller.FeaturesNeeded));
+			SetStatus(String.Format("Muestras de la huella necesarias para el registro: {0}", Enroller.FeaturesNeeded));
 		}
 
 		private DPFP.Processing.Enrollment Enroller;

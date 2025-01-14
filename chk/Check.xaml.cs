@@ -102,7 +102,7 @@ namespace chk
                 try
                 {
                     Capturer.StartCapture();
-                    lblReport.Content = "Using the fingerprint reader, scan your fingerprint.";
+                    lblReport.Content = "Lector Está Listo, Por Favor Escanee Su Huella.";
                 }
                 catch
                 {
@@ -167,8 +167,8 @@ namespace chk
         {
             
             this.Dispatcher.Invoke(new Function(delegate () {
-                lblReport.Content = "The fingerprint sample was captured.";
-                lblStatus.Content = "Scan the same fingerprint again.";
+                lblReport.Content = "Se capturó la muestra de la huella.";
+                lblStatus.Content = "Escanee nuevamente una huella.";
                 Process(Sample);
             }));
         }
@@ -176,7 +176,7 @@ namespace chk
         public void OnFingerGone(object Capture, string ReaderSerialNumber)
         {
             this.Dispatcher.Invoke(new Function(delegate () {
-                lblReport.Content = "The finger was removed from the fingerprint reader.";
+                lblReport.Content = "La huella fue removida del lector de huellas, por favor vuelva a escanear.";
             }));
 
         }
@@ -184,21 +184,21 @@ namespace chk
         public void OnFingerTouch(object Capture, string ReaderSerialNumber)
         {
             this.Dispatcher.Invoke(new Function(delegate () {
-                lblReport.Content = "The fingerprint reader was touched.";
+                lblReport.Content = "Se tocó el lector de huellas.";
             }));
         }
 
         public void OnReaderConnect(object Capture, string ReaderSerialNumber)
         {
             this.Dispatcher.Invoke(new Function(delegate () {
-                lblReport.Content ="The fingerprint reader was connected.";
+                lblReport.Content ="El lector de huellas está conectado.";
             }));        
         }
 
         public void OnReaderDisconnect(object Capture, string ReaderSerialNumber)
         {
             this.Dispatcher.Invoke(new Function(delegate () {
-                lblReport.Content ="The fingerprint reader was disconnected.";
+                lblReport.Content ="El lector de huellas está desconectado.";
             }));
         }
 
