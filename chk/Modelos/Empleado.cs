@@ -17,6 +17,7 @@ namespace chk.Modelos
         public string Nombre { get; set; } = string.Empty;
         public string Apellido { get; set; } = string.Empty;
         public string Cargo { get; set; } = string.Empty;
+        public string Condicion { get; set; } = string.Empty;
         public byte[] Huella { get; set; } = Array.Empty<byte>();
         public DateTime FechaHoraAlta { get; set; }
 

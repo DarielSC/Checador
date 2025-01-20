@@ -29,7 +29,7 @@ namespace chk
         //Metodo para guardar los datos del empleado
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            if (tbNombre.Text == "" || tbDepartamento.Text == "" || tbApellido.Text == "" || tbMatricula.Text == "" || tbCargo.Text == "")
+            if (tbNombre.Text == "" || tbDepartamento.Text == "" || tbApellido.Text == "" || tbMatricula.Text == "" || tbCargo.Text == "" || tbCondicion.Text == "")
             {
                 MessageBox.Show("Todos los campos deben ser especificados.", "Error");
                 return;
@@ -60,7 +60,8 @@ namespace chk
                     Nombre = tbNombre.Text,
                     Apellido = tbApellido.Text,
                     Cargo = tbCargo.Text,
-                    Huella = Template.Bytes
+                    Huella = Template.Bytes,
+                    Condicion = tbCondicion.Text
                 };
 
                 int id = DatoEmpleado.AltaEmpleado(empleado);
@@ -88,6 +89,7 @@ namespace chk
             tbDepartamento.Text = "";
             tbCargo.Text = "";
             tbMatricula.Text = "";
+            tbCondicion.Text = "";
             Template = null;
             imgVerHuella.Visibility = Visibility.Hidden;
         }
@@ -113,6 +115,7 @@ namespace chk
             tbNombre.Text = empleado.Nombre;
             tbApellido.Text = empleado.Apellido;
             tbCargo.Text = empleado.Cargo;
+            tbCondicion.Text = empleado.Condicion;
 
 
             if (empleado.Huella != null)
@@ -187,19 +190,36 @@ namespace chk
             }
         }
 
-        private void btnListaAsis_Click(object sender, RoutedEventArgs e)
+
+        private void btnActualizar_Click(object sender, RoutedEventArgs e)
         {
-            Window1 window1 = new Window1();
-            window1.Show();
+            Empleado empleadoSeleccionado = (Empleado)dgEmpleados.SelectedItem;
+
+            if(empleadoSeleccionado == null)
+            {
+                MessageBox.Show("Debe seleccionar un empleado para actualizar", "Error");
+                return;
+            }
+            //
+            empleadoSeleccionado.Matricula = tbMatricula.Text;
+            empleadoSeleccionado.Nombre = tbNombre.Text;
+            empleadoSeleccionado.Apellido = tbApellido.Text;
+            empleadoSeleccionado.Departamento = tbDepartamento.Text;
+            empleadoSeleccionado.Cargo = tbCargo.Text;
+            empleadoSeleccionado.Condicion = tbCondicion.Text;
+
+            // Llama al método de actualización
+            bool resultado = DatoEmpleado.ActualizarEmpleado(empleadoSeleccionado);
+
+            if (resultado)
+            {
+                MessageBox.Show("Registro modificado con éxito.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                dgEmpleados.Items.Refresh(); // Actualiza la interfaz
+            }
+            else
+            {
+                MessageBox.Show("No se pudo modificar el registro.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
-
-        private void btnListaFalta_Click(object sender, RoutedEventArgs e)
-        {
-            Faltas faltas = new Faltas();
-            faltas.Show();
-        }
-
-        
-
-    }
+    } 
 }

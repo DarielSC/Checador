@@ -10,14 +10,14 @@
     <Grid Cursor="Hand">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="0"/>
             <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="0"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="800"/>
             <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
 
-        <DataGrid ItemsSource="{Binding}" x:Name="dgEmpleados" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,24,340,0" SelectionChanged="dgEmpleados_SelectionChanged" Height="654" VerticalAlignment="Top" Grid.Column="4">
+        <DataGrid ItemsSource="{Binding}" x:Name="dgEmpleados" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" d:ItemsSource="{d:SampleData ItemCount=7}" Margin="10,24,243,0" SelectionChanged="dgEmpleados_SelectionChanged" Height="654" VerticalAlignment="Top" Grid.ColumnSpan="5">
 
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
@@ -32,41 +32,46 @@
                 <DataGridTextColumn Header="Cargo" Binding="{Binding Cargo}" />
                 <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" />
                 <DataGridTextColumn Header="Apellido" Binding="{Binding Apellido}"/>
+                <DataGridTextColumn Header="Condicion" Binding="{Binding Condicion}"/>
+                <DataGridTextColumn Header="FechaHoraAlta" Binding="{Binding FechaHoraAlta}"/>
             </DataGrid.Columns>
         </DataGrid>
         <TextBox
             VerticalAlignment="Top"
             materialDesign:HintAssist.Hint="Cargo:" x:Name="tbCargo"
-            Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="4" Margin="513,123,10,0" Height="36" />
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="4" Margin="680,123,-56,0" Height="36" Grid.ColumnSpan="2" />
         <TextBox
             VerticalAlignment="Top"
             materialDesign:HintAssist.Hint="Nombre:" x:Name="tbNombre"
-            Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="4" Margin="513,174,10,0" Height="33" />
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="4" Margin="678,181,-55,0" Height="33" Grid.ColumnSpan="2" />
         <TextBox
             VerticalAlignment="Top"
             materialDesign:HintAssist.Hint="Apellido:" x:Name="tbApellido"
-            Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="4" Margin="513,224,10,0" Height="33" />
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="4" Margin="679,231,-54,0" Height="33" Grid.ColumnSpan="2" />
         <TextBox
             VerticalAlignment="Top"
             materialDesign:HintAssist.Hint="Matricula:" x:Name="tbMatricula"
-            Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="4" Margin="513,26,10,0" Height="33" />
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="4" Margin="679,24,-55,0" Height="33" Grid.ColumnSpan="2" />
         <TextBox
             VerticalAlignment="Top"
             materialDesign:HintAssist.Hint="Departamento:" x:Name="tbDepartamento"
-            Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="4" Margin="513,76,10,0" Height="33" />
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="4" Margin="680,71,-56,0" Height="33" Grid.ColumnSpan="2" />
         <Button x:Name="btnCaptura"
             Content="Capturar Huella"
             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
             Style="{StaticResource MaterialDesignRaisedButton}"
-            ToolTip="Resource name: MaterialDesignRaisedButton" Grid.Column="4" Margin="564,319,60,0" Height="45" VerticalAlignment="Top" Click="btnCaptura_Click" />
+            ToolTip="Resource name: MaterialDesignRaisedButton" Grid.Column="4" Margin="729,362,-5,0" Height="45" VerticalAlignment="Top" Click="btnCaptura_Click" Grid.ColumnSpan="2" />
         <Button x:Name="btnGuardar"
             Content="Guardar"
             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
             Style="{StaticResource MaterialDesignRaisedButton}"
-            ToolTip="Resource name: MaterialDesignRaisedButton" Grid.Column="4" Margin="564,396,62,0" Height="38" VerticalAlignment="Top" Click="btnGuardar_Click" />
+            ToolTip="Resource name: MaterialDesignRaisedButton" Grid.Column="4" Margin="730,434,-3,0" Height="38" VerticalAlignment="Top" Click="btnGuardar_Click" Grid.ColumnSpan="2" />
         <Image Grid.Column="4" x:Name="imgVerHuella" Source="Resources/autenticacion.png" Stretch="Uniform" Visibility="Hidden" HorizontalAlignment="Left" Height="32" Margin="532,257,0,0" VerticalAlignment="Top" Width="31"/>
-        <Button x:Name="btnEliminar" Grid.Column="4" Content="Eliminar" HorizontalAlignment="Left" Margin="564,470,0,0" VerticalAlignment="Top" Width="174" Click="btnEliminar_Click" Height="37"/>
-        <Button x:Name="btnListaAsis" Grid.Column="4" Content="Lista de asistencia" HorizontalAlignment="Left" Margin="564,542,0,0" VerticalAlignment="Top" Width="176" Height="38" Click="btnListaAsis_Click"/>
-        <Button x:Name="btnListaFalta" Grid.Column="4" Content="Lista de falta" HorizontalAlignment="Left" Margin="562,613,0,0" VerticalAlignment="Top" Width="176" Height="41" Click="btnListaFalta_Click"/>
+        <Button x:Name="btnEliminar" Grid.Column="4" Content="Eliminar" HorizontalAlignment="Left" Margin="732,575,0,0" VerticalAlignment="Top" Width="177" Click="btnEliminar_Click" Height="38" Grid.ColumnSpan="2"/>
+        <TextBox
+            VerticalAlignment="Top"
+            materialDesign:HintAssist.Hint="Condición:" x:Name="tbCondicion"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="4" Margin="679,280,-55,0" Height="33" Grid.ColumnSpan="2" />
+        <Button x:Name="btnActualizarEmpleado" Grid.Column="4" Content="Actualizar" HorizontalAlignment="Left" Margin="731,501,0,0" VerticalAlignment="Top" Width="179" Click="btnActualizar_Click" Height="43" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>

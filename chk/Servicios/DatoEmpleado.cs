@@ -46,7 +46,8 @@ namespace chk.Servicios
                                         Apellido = dr["Apellido"]?.ToString() ?? string.Empty,
                                         Cargo = dr["Cargo"]?.ToString() ?? string.Empty,
                                         Huella = dr["Huella"] != DBNull.Value ? (byte[])dr["Huella"] : Array.Empty<byte>(),
-                                        FechaHoraAlta = dr["FechaHoraAlta"] != DBNull.Value ? Convert.ToDateTime(dr["FechaHoraAlta"]) : default
+                                        FechaHoraAlta = dr["FechaHoraAlta"] != DBNull.Value ? Convert.ToDateTime(dr["FechaHoraAlta"]) : default,
+                                        Condicion = dr["Condicion"]?.ToString() ?? string.Empty
                                     };
 
                                     listaEmpleados.Add(emp);
@@ -103,6 +104,7 @@ namespace chk.Servicios
                         command.Parameters.Add(new MySqlParameter("pNombre", MySqlDbType.VarChar) { Value = empleado.Nombre });
                         command.Parameters.Add(new MySqlParameter("pApellido", MySqlDbType.VarChar) { Value = empleado.Apellido });
                         command.Parameters.Add(new MySqlParameter("pDepartamento", MySqlDbType.VarChar) { Value = empleado.Departamento });
+                        command.Parameters.Add(new MySqlParameter("pCondicion", MySqlDbType.VarChar) { Value = empleado.Condicion });
 
                         // Asignar la huella como byte[]
                         command.Parameters.Add(new MySqlParameter("pHuella", MySqlDbType.Blob) { Value = empleado.Huella });
@@ -156,7 +158,45 @@ namespace chk.Servicios
 
             return res;
         }
+
+        public static bool ActualizarEmpleado(Empleado empleado)
+        {
+            bool actualizado = false;
+
+            try
+            {
+                using (var conn = DatabaseHelper.GetConnection()) // Asegúrate de tener un método para obtener la conexión
+                {
+                    conn.Open();
+
+                    using (var command = conn.CreateCommand())
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.CommandText = "ActualizarEmpleado"; // Nombre del procedimiento almacenado
+
+                        // Agrega los parámetros usando MySqlParameter
+                        command.Parameters.Add(new MySqlParameter("pId", MySqlDbType.Int32) { Value = empleado.Id });
+                        command.Parameters.Add(new MySqlParameter("pMatricula", MySqlDbType.VarChar) { Value = empleado.Matricula });
+                        command.Parameters.Add(new MySqlParameter("pNombre", MySqlDbType.VarChar) { Value = empleado.Nombre });
+                        command.Parameters.Add(new MySqlParameter("pApellido", MySqlDbType.VarChar) { Value = empleado.Apellido });
+                        command.Parameters.Add(new MySqlParameter("pDepartamento", MySqlDbType.VarChar) { Value = empleado.Departamento });
+                        command.Parameters.Add(new MySqlParameter("pCargo", MySqlDbType.VarChar) { Value = empleado.Cargo });
+                        command.Parameters.Add(new MySqlParameter("pHuella", MySqlDbType.Blob) { Value = empleado.Huella });
+                        command.Parameters.Add(new MySqlParameter("pCondicion", MySqlDbType.VarChar) { Value = empleado.Condicion });
+
+                        // Ejecutar la consulta
+                        int rowsAffected = command.ExecuteNonQuery();
+                        actualizado = rowsAffected > 0; // Retorna true si se actualizó al menos un registro
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al actualizar el empleado: " + ex.Message, "Error");
+            }
+
+            return actualizado;
+        }
+
     }
-
-
 }
