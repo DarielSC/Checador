@@ -64,7 +64,7 @@
                 <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
                 <DataGridTextColumn Header="Apellido" Binding="{Binding Apellido}"/>
                 <DataGridTextColumn Header="Departamento" Binding="{Binding Departamento}"  Visibility="Hidden"/>
-                <DataGridTextColumn Header="Cargo" Binding="{Binding Cargo}"/>
+                <DataGridTextColumn Header="Grado" Binding="{Binding Grado}"/>
                 <DataGridTextColumn Header="MotivoFalta" Binding="{Binding MotivoFalta}"/>
                 <DataGridTextColumn Header="FechaInicioFalta" Binding="{Binding FechaInicioFalta}"/>
                 <DataGridTextColumn Header="FechaFinFalta" Binding="{Binding FechaFinFalta}"/>

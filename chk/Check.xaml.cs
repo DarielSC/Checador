@@ -156,7 +156,7 @@ namespace chk
             lblMatricula.Content = empleado.Matricula;
             lblNombre.Content = empleado.Nombre;
             lblApellido.Content = empleado.Apellido;
-            lblCargo.Content = empleado.Cargo;
+            lblCargo.Content = empleado.Grado;
             lblDepartamento.Content = empleado.Departamento;
                        
         }
@@ -230,7 +230,7 @@ namespace chk
                     Matricula = empleado.Matricula,
                     Nombre = empleado.Nombre,
                     Apellido = empleado.Apellido,
-                    Cargo = empleado.Cargo,
+                    Grado = empleado.Grado,
                     Departamento = empleado.Departamento,
                     FechaHoraAsistencia = DateTime.Now,
                     Huella = empleado.Huella

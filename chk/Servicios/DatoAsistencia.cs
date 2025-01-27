@@ -44,7 +44,7 @@ namespace chk.Servicios
                                         Departamento = dr["Departamento"]?.ToString() ?? string.Empty,
                                         Nombre = dr["Nombre"]?.ToString() ?? string.Empty,
                                         Apellido = dr["Apellido"]?.ToString() ?? string.Empty,  
-                                        Cargo = dr["Cargo"]?.ToString() ?? string.Empty,
+                                        Grado = dr["Cargo"]?.ToString() ?? string.Empty,
                                         Huella = dr["Huella"] != DBNull.Value ? (byte[])dr["Huella"] : Array.Empty<byte>(),
                                         FechaHoraAsistencia = dr["FechaHoraAsistencia"] != DBNull.Value ? Convert.ToDateTime(dr["FechaHoraAsistencia"]) : default
                                     };
@@ -94,7 +94,7 @@ namespace chk.Servicios
                         command.Parameters.Add(new MySqlParameter("pMatricula", MySqlDbType.VarChar) { Value = asistencia.Matricula });
                         command.Parameters.Add(new MySqlParameter("pNombre", MySqlDbType.VarChar) { Value = asistencia.Nombre });
                         command.Parameters.Add(new MySqlParameter("pApellido", MySqlDbType.VarChar) { Value = asistencia.Apellido });
-                        command.Parameters.Add(new MySqlParameter("pCargo", MySqlDbType.VarChar) { Value = asistencia.Cargo });
+                        command.Parameters.Add(new MySqlParameter("pCargo", MySqlDbType.VarChar) { Value = asistencia.Grado });
                         command.Parameters.Add(new MySqlParameter("pDepartamento", MySqlDbType.VarChar) { Value = asistencia.Departamento });
 
                         // Asigna FechaHoraAsistencia, usa DateTime.Now si es nulo

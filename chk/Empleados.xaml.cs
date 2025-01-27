@@ -29,7 +29,7 @@ namespace chk
         //Metodo para guardar los datos del empleado
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            if (tbNombre.Text == "" || tbDepartamento.Text == "" || tbApellido.Text == "" || tbMatricula.Text == "" || tbCargo.Text == "" || tbCondicion.Text == "")
+            if (tbNombre.Text == "" || tbDepartamento.Text == "" || tbApellido.Text == "" || tbMatricula.Text == "" || tbGrado.Text == "" || tbCondicion.Text == "")
             {
                 MessageBox.Show("Todos los campos deben ser especificados.", "Error");
                 return;
@@ -59,7 +59,7 @@ namespace chk
                     Departamento = tbDepartamento.Text,
                     Nombre = tbNombre.Text,
                     Apellido = tbApellido.Text,
-                    Cargo = tbCargo.Text,
+                    Grado = tbGrado.Text,
                     Huella = Template.Bytes,
                     Condicion = tbCondicion.Text
                 };
@@ -87,7 +87,7 @@ namespace chk
             tbNombre.Text = "";
             tbApellido.Text = "";
             tbDepartamento.Text = "";
-            tbCargo.Text = "";
+            tbGrado.Text = "";
             tbMatricula.Text = "";
             tbCondicion.Text = "";
             Template = null;
@@ -98,6 +98,7 @@ namespace chk
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            ActualizarCantidadEmpleados();
             dgEmpleados.DataContext = DatoEmpleado.MuestraEmpleado();
         }
 
@@ -114,7 +115,7 @@ namespace chk
             tbDepartamento.Text = empleado.Departamento;
             tbNombre.Text = empleado.Nombre;
             tbApellido.Text = empleado.Apellido;
-            tbCargo.Text = empleado.Cargo;
+            tbGrado.Text = empleado.Grado;
             tbCondicion.Text = empleado.Condicion;
 
 
@@ -175,7 +176,7 @@ namespace chk
                     tbNombre.Text = "";
                     tbApellido.Text = "";
                     tbDepartamento.Text = "";
-                    tbCargo.Text = "";
+                    tbGrado.Text = "";
                     tbMatricula.Text = "";
                     dgEmpleados.DataContext = DatoEmpleado.MuestraEmpleado();
                 }
@@ -205,7 +206,7 @@ namespace chk
             empleadoSeleccionado.Nombre = tbNombre.Text;
             empleadoSeleccionado.Apellido = tbApellido.Text;
             empleadoSeleccionado.Departamento = tbDepartamento.Text;
-            empleadoSeleccionado.Cargo = tbCargo.Text;
+            empleadoSeleccionado.Grado = tbGrado.Text;
             empleadoSeleccionado.Condicion = tbCondicion.Text;
 
             // Llama al método de actualización
@@ -221,5 +222,14 @@ namespace chk
                 MessageBox.Show("No se pudo modificar el registro.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-    } 
+
+        private void ActualizarCantidadEmpleados()
+        {
+            DatoEmpleado datoEmpleado = new DatoEmpleado();
+            int cantidadEmpleados = DatoEmpleado.ObtenerCantidadEmpleados();
+
+            lblCantidadEmpleados.Content = $"Total empleados: {cantidadEmpleados}";
+        }
+
+    }
 }

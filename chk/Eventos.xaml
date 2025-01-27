@@ -1,0 +1,34 @@
+﻿<Window x:Class="chk.Eventos"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:chk"
+      mc:Ignorable="d" 
+      Title="Registro de Eventos" Height="720" Width="1080" Loaded="Window_Loaded">
+
+    <Grid Loaded="Grid_Loaded">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="800"/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+
+        <DataGrid ItemsSource="{Binding}" x:Name="dgEventos" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" d:ItemsSource="{d:SampleData ItemCount=3}" SelectionChanged="dgEventos_SelectionChanged" Margin="50,0,0,0" Height="506" VerticalAlignment="Center" Grid.ColumnSpan="3" HorizontalAlignment="Left" Width="1020"  >
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="IDEvento" Binding="{Binding IDEvento}" Visibility="Hidden"/>
+                <DataGridTextColumn Header="FechaHora" Binding="{Binding FechaHora}"/>
+                <DataGridTextColumn Header="Accion" Binding="{Binding Accion}"/>
+                <DataGridTextColumn Header="Detalle" Binding="{Binding Detalle}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Tablero de Eventos" HorizontalAlignment="Left" Margin="190,30,0,0" VerticalAlignment="Top" FontFamily="Arial Black" Foreground="#08426c" FontSize="40" Width="500" Grid.Column="1"/>
+
+    </Grid>
+</Window>

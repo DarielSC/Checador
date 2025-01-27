@@ -45,7 +45,7 @@ namespace chk.Servicios
                                         Departamento = dr["Departamento"]?.ToString() ?? string.Empty,
                                         Nombre = dr["Nombre"]?.ToString() ?? string.Empty,
                                         Apellido = dr["Apellido"]?.ToString() ?? string.Empty,
-                                        Cargo = dr["Cargo"]?.ToString() ?? string.Empty,
+                                        Grado = dr["Cargo"]?.ToString() ?? string.Empty,
                                         MotivoFalta = dr["MotivoFalta"]?.ToString() ?? string.Empty,
                                         FechaInicioFalta = dr["FechaInicioFalta"] != DBNull.Value ? Convert.ToDateTime(dr["FechaInicioFalta"]) : default,
                                         FechaFinFalta = dr["FechaFinFalta"] != DBNull.Value ? Convert.ToDateTime(dr["FechaFinFalta"]) : default
@@ -86,7 +86,7 @@ namespace chk.Servicios
                         command.Parameters.Add(new MySqlParameter("pMatricula", MySqlDbType.VarChar) { Value = falta.Matricula });
                         command.Parameters.Add(new MySqlParameter("pNombre", MySqlDbType.VarChar) { Value = falta.Nombre });
                         command.Parameters.Add(new MySqlParameter("pApellido", MySqlDbType.VarChar) { Value = falta.Apellido });
-                        command.Parameters.Add(new MySqlParameter("pCargo", MySqlDbType.VarChar) { Value = falta.Cargo });
+                        command.Parameters.Add(new MySqlParameter("pCargo", MySqlDbType.VarChar) { Value = falta.Grado });
                         command.Parameters.Add(new MySqlParameter("pDepartamento", MySqlDbType.VarChar) { Value = falta.Departamento });
                         command.Parameters.Add(new MySqlParameter("pFechaInicioFalta", MySqlDbType.DateTime) { Value = falta.FechaInicioFalta });
                         command.Parameters.Add(new MySqlParameter("pFechaFinFalta", MySqlDbType.DateTime) { Value = falta.FechaFinFalta });
@@ -141,7 +141,7 @@ namespace chk.Servicios
                         command.Parameters.Add(new MySqlParameter("pNombre", MySqlDbType.VarChar) { Value = falta.Nombre });
                         command.Parameters.Add(new MySqlParameter("pApellido", MySqlDbType.VarChar) { Value = falta.Apellido });
                         command.Parameters.Add(new MySqlParameter("pDepartamento", MySqlDbType.VarChar) { Value = falta.Departamento });
-                        command.Parameters.Add(new MySqlParameter("pCargo", MySqlDbType.VarChar) { Value = falta.Cargo });
+                        command.Parameters.Add(new MySqlParameter("pCargo", MySqlDbType.VarChar) { Value = falta.Grado });
                         command.Parameters.Add(new MySqlParameter("pFechaInicioFalta", MySqlDbType.DateTime) { Value = falta.FechaInicioFalta });
                         command.Parameters.Add(new MySqlParameter("pFechaFinFalta", MySqlDbType.DateTime) { Value = falta.FechaFinFalta });
                         command.Parameters.Add(new MySqlParameter("pMotivoFalta", MySqlDbType.VarChar) { Value = falta.MotivoFalta });

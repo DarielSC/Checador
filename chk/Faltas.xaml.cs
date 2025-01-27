@@ -97,7 +97,7 @@ namespace chk
                     Nombre = tbNombre.Text,
                     Apellido = tbApellido.Text,
                     Departamento = tbDepartamento.Text,
-                    Cargo = tbCargo.Text,
+                    Grado = tbCargo.Text,
                     MotivoFalta = motivo,
                     FechaInicioFalta = dpFechaInicioFalta.SelectedDate.Value
                 };
@@ -157,7 +157,7 @@ namespace chk
             tbNombre.Text = falta.Nombre;
             tbApellido.Text = falta.Apellido;
             tbDepartamento.Text = falta.Departamento;
-            tbCargo.Text = falta.Cargo;
+            tbCargo.Text = falta.Grado;
         }
 
         private void btnActualizarFalta_Click(object sender, RoutedEventArgs e)
@@ -175,7 +175,7 @@ namespace chk
             faltaSeleccionada.Nombre = tbNombre.Text;
             faltaSeleccionada.Apellido = tbApellido.Text;
             faltaSeleccionada.Departamento = tbDepartamento.Text;
-            faltaSeleccionada.Cargo = tbCargo.Text;
+            faltaSeleccionada.Grado = tbCargo.Text;
             faltaSeleccionada.FechaInicioFalta = dpFechaInicioFalta.SelectedDate;
             faltaSeleccionada.FechaFinFalta = dpFechaFinFalta.SelectedDate;
             faltaSeleccionada.MotivoFalta = cbMotivoFalta.Text;

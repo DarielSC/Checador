@@ -101,5 +101,7 @@
         <Rectangle Stroke="Black" Grid.ColumnSpan="4" Fill="#08426c" Height="100" VerticalAlignment="Top"/>
         <Label Grid.Column="1" Content="Tablero de Administración" HorizontalAlignment="Left" Margin="10,23,0,0" VerticalAlignment="Top" FontFamily="Arial Black" Foreground="#E5FFFFFF" FontSize="40" Grid.ColumnSpan="3" Width="600"/>
         <Button x:Name="btnRespaldo" Content="Realizar Respaldo" HorizontalAlignment="Center" Margin="0,618,0,0" VerticalAlignment="Top" Height="40" Click="btnRespaldo_Click"/>
+        <Button x:Name="btnCerrarSesion" Grid.Column="3" Content="Cerrrar Sesion" HorizontalAlignment="Left" Margin="69,628,0,0" VerticalAlignment="Top" Width="137" Height="40" Click="BtnCerrarSesion_Click"/>
+        <Button x:Name="btnRegistroEventos" Grid.Column="3" Content="Registro de eventos" Margin="48,156,27,0" VerticalAlignment="Top" Click="btnRegistroEventos_Click" Height="41" />
     </Grid>
 </Window>

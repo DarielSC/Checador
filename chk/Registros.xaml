@@ -19,7 +19,7 @@
                 <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
                 <DataGridTextColumn Header="Apellido" Binding="{Binding Apellido}" />
                 <DataGridTextColumn Header="Departamento" Binding="{Binding Departamento}" />
-                <DataGridTextColumn Header="Cargo" Binding="{Binding Cargo}"/>
+                <DataGridTextColumn Header="Grado" Binding="{Binding Grado}"/>
                 <DataGridTextColumn Header="FechaHoraAsistencia" Binding="{Binding FechaHoraAsistencia}"/>
                 <DataGridTextColumn Header="Foto" Binding="{Binding Foto}" Visibility="Hidden"/>
                 <DataGridTextColumn Header="Huella" Binding="{Binding Huella}" Visibility="Hidden"/>

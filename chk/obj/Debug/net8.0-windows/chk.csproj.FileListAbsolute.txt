@@ -130,3 +130,5 @@ C:\Users\darie\source\repos\chk - copia\chk\obj\Debug\net8.0-windows\Faltas.baml
 C:\Users\darie\source\repos\chk - copia\chk\obj\Debug\net8.0-windows\Login.g.cs
 C:\Users\darie\source\repos\chk - copia\chk\obj\Debug\net8.0-windows\Login.baml
 C:\Users\darie\source\repos\chk - copia\chk\obj\Debug\net8.0-windows\Enrollment.EnrollmentForm.resources
+C:\Users\darie\source\repos\chk - copia\chk\obj\Debug\net8.0-windows\Eventos.g.cs
+C:\Users\darie\source\repos\chk - copia\chk\obj\Debug\net8.0-windows\Eventos.baml

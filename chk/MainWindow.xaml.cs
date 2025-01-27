@@ -1,4 +1,5 @@
-﻿using chk.Servicios;
+﻿using chk.Modelos;
+using chk.Servicios;
 using System.IO;
 using System.Text;
 using System.Windows;
@@ -22,6 +23,19 @@ namespace chk
         public MainWindow()
         {
             InitializeComponent();
+            ConfigurarUI();
+        }
+
+        private void ConfigurarUI()
+        {
+            if (SesionUsuario.Rol == "mod")
+            {
+                btnEmpleados.IsEnabled = false; // Moderador no puede gestionar empleados
+            }
+            else if (SesionUsuario.Rol == "admin")
+            {
+                // Administrador tiene acceso completo
+            }
         }
 
         private void btnEmpleados_Click(object sender, RoutedEventArgs e)
@@ -72,5 +86,19 @@ namespace chk
                 MessageBox.Show("Error al realizar el respaldo: " + ex.Message, "Error");
             }
         }
+
+        private void BtnCerrarSesion_Click(object sender, RoutedEventArgs e)
+        {
+            // Cerrar la ventana actual (MainWindow)
+            this.Close();
+            SesionUsuario.CerrarSesion();
+
+        }
+
+        private void btnRegistroEventos_Click(object sender, RoutedEventArgs e)
+        {
+            Eventos eventos = new Eventos();
+            eventos.Show();
+        } 
     }
 }

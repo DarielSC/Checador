@@ -19,6 +19,9 @@
     <Compile Update="EnrollmentForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Eventos.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Faltas.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -37,6 +40,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Empleados.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Eventos.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Faltas.xaml">

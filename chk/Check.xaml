@@ -13,7 +13,7 @@
             <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
         <Label Content="Matricula:" FontSize="30" x:Name="lblMatricula" Grid.Column="1" HorizontalAlignment="Left" Margin="11,67,0,0" VerticalAlignment="Top" Width="279"/>
-        <Label Content="Cargo:" FontSize="30" x:Name="lblCargo" Grid.Column="1" HorizontalAlignment="Left" Margin="11,268,0,0" VerticalAlignment="Top" Width="390"/>
+        <Label Content="Grado:" FontSize="30" x:Name="lblCargo" Grid.Column="1" HorizontalAlignment="Left" Margin="11,268,0,0" VerticalAlignment="Top" Width="390"/>
         <Label Content="Departamento:" FontSize="30" x:Name="lblDepartamento" Grid.Column="1" HorizontalAlignment="Left" Margin="290,67,0,0" VerticalAlignment="Top" Width="388"/>
         <Label Content="Nombre:" FontSize="30" x:Name="lblNombre" Grid.Column="1" HorizontalAlignment="Left" Margin="11,136,0,0" VerticalAlignment="Top" Width="279"/>
         <Label Content="Apellido:" FontSize="30" x:Name="lblApellido" Grid.Column="1" Margin="11,201,510,0" VerticalAlignment="Top"/>

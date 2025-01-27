@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using System.Security.Cryptography;
 using MySql.Data.MySqlClient;
 using chk.Servicios;
+using chk.Modelos;
 
 namespace chk
 {
@@ -30,9 +31,11 @@ namespace chk
             string usuario = txtUsuario.Text;
             string contrasena = txtContrasena.Password;
 
-            if (ValidarCredenciales(usuario, contrasena))
+            var (esValido, rolUsuario) = ValidarCredenciales(usuario, contrasena);
+
+            if (esValido)
             {
-                // Indica éxito al cerrar la ventana
+                SesionUsuario.IniciarSesion(usuario, rolUsuario);
                 this.DialogResult = true;
                 this.Close();
             }
@@ -43,7 +46,8 @@ namespace chk
         }
 
 
-        private bool ValidarCredenciales(string usuario, string contrasena)
+
+        private (bool esValido, string rolUsuario) ValidarCredenciales(string usuario, string contrasena)
         {
             try
             {
@@ -51,18 +55,24 @@ namespace chk
                 {
                     conn.Open();
 
-                    string query = "SELECT Contrasena FROM Administradores WHERE Usuario = @Usuario";
+                    string query = "SELECT Contrasena, Rol FROM Administradores WHERE Usuario = @Usuario";
                     using (var cmd = new MySqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@Usuario", usuario);
 
-                        var result = cmd.ExecuteScalar();
-                        if (result != null)
+                        using (var reader = cmd.ExecuteReader())
                         {
-                            string contrasenaHasheada = HashPassword(contrasena);
+                            if (reader.Read())
+                            {
+                                string contrasenaAlmacenada = reader.GetString("Contrasena");
+                                string rol = reader.GetString("Rol");
+                                string contrasenaHasheada = HashPassword(contrasena);
 
-                            // Comparar el hash ingresado con el hash almacenado
-                            return contrasenaHasheada == result.ToString();
+                                if (contrasenaHasheada == contrasenaAlmacenada)
+                                {
+                                    return (true, rol);
+                                }
+                            }
                         }
                     }
                 }
@@ -76,8 +86,9 @@ namespace chk
                 MessageBox.Show("Error inesperado: " + ex.Message, "Error");
             }
 
-            return false;
+            return (false, null);
         }
+
 
         private string HashPassword(string password)
         {

@@ -44,7 +44,7 @@ namespace chk.Servicios
                                         Departamento = dr["Departamento"]?.ToString() ?? string.Empty,
                                         Nombre = dr["Nombre"]?.ToString() ?? string.Empty,
                                         Apellido = dr["Apellido"]?.ToString() ?? string.Empty,
-                                        Cargo = dr["Cargo"]?.ToString() ?? string.Empty,
+                                        Grado = dr["Grado"]?.ToString() ?? string.Empty,
                                         Huella = dr["Huella"] != DBNull.Value ? (byte[])dr["Huella"] : Array.Empty<byte>(),
                                         FechaHoraAlta = dr["FechaHoraAlta"] != DBNull.Value ? Convert.ToDateTime(dr["FechaHoraAlta"]) : default,
                                         Condicion = dr["Condicion"]?.ToString() ?? string.Empty
@@ -100,7 +100,7 @@ namespace chk.Servicios
 
                         // Agrega los parámetros usando MySqlParameter
                         command.Parameters.Add(new MySqlParameter("pMatricula", MySqlDbType.VarChar) { Value = empleado.Matricula });
-                        command.Parameters.Add(new MySqlParameter("pCargo", MySqlDbType.VarChar) { Value = empleado.Cargo });
+                        command.Parameters.Add(new MySqlParameter("pGrado", MySqlDbType.VarChar) { Value = empleado.Grado });
                         command.Parameters.Add(new MySqlParameter("pNombre", MySqlDbType.VarChar) { Value = empleado.Nombre });
                         command.Parameters.Add(new MySqlParameter("pApellido", MySqlDbType.VarChar) { Value = empleado.Apellido });
                         command.Parameters.Add(new MySqlParameter("pDepartamento", MySqlDbType.VarChar) { Value = empleado.Departamento });
@@ -180,7 +180,7 @@ namespace chk.Servicios
                         command.Parameters.Add(new MySqlParameter("pNombre", MySqlDbType.VarChar) { Value = empleado.Nombre });
                         command.Parameters.Add(new MySqlParameter("pApellido", MySqlDbType.VarChar) { Value = empleado.Apellido });
                         command.Parameters.Add(new MySqlParameter("pDepartamento", MySqlDbType.VarChar) { Value = empleado.Departamento });
-                        command.Parameters.Add(new MySqlParameter("pCargo", MySqlDbType.VarChar) { Value = empleado.Cargo });
+                        command.Parameters.Add(new MySqlParameter("pGrado", MySqlDbType.VarChar) { Value = empleado.Grado });
                         command.Parameters.Add(new MySqlParameter("pHuella", MySqlDbType.Blob) { Value = empleado.Huella });
                         command.Parameters.Add(new MySqlParameter("pCondicion", MySqlDbType.VarChar) { Value = empleado.Condicion });
 
@@ -197,6 +197,35 @@ namespace chk.Servicios
 
             return actualizado;
         }
+
+        public static int ObtenerCantidadEmpleados()
+        {
+            int cantidad = 0;
+
+            try
+            {
+                using (var conn = DatabaseHelper.GetConnection())
+                {
+                    conn.Open();
+
+                    using (var command = conn.CreateCommand())
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.CommandText = "ObtenerCantidadEmpleados"; // Nombre del procedimiento almacenado
+
+                        // Ejecutar la consulta y obtener el resultado
+                        cantidad = Convert.ToInt32(command.ExecuteScalar());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener la cantidad de empleados: " + ex.Message, "Error");
+            }
+
+            return cantidad;
+        }
+
 
     }
 }
