@@ -193,5 +193,33 @@ namespace chk
                 MessageBox.Show("No se pudo modificar el registro.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void btnBuscar_Click(object sender, RoutedEventArgs e)
+        {
+            string matricula = tbMatricula.Text.Trim(); // Obtener la matrícula del TextBox
+
+            if (string.IsNullOrEmpty(matricula))
+            {
+                MessageBox.Show("Por favor, ingrese una matrícula.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            // Llamar al método ObtenerEmpleadoPorMatricula de la clase DatoEmpleado
+            Empleado empleado = DatoEmpleado.ObtenerEmpleadoPorMatricula(matricula);
+
+            if (empleado != null)
+            {
+                // Mostrar los datos en los TextBoxes correspondientes
+                tbNombre.Text = empleado.Nombre;
+                tbApellido.Text = empleado.Apellido;
+                tbDepartamento.Text = empleado.Departamento;
+                tbCargo.Text = empleado.Grado;
+                tbMatricula.Text = empleado.Matricula;
+            }
+            else
+            {
+                MessageBox.Show("No se encontró ningún empleado con la matrícula ingresada.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }

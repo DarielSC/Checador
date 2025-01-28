@@ -27,7 +27,7 @@
             Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="1" Margin="64,409,460,0" Height="32" />
         <TextBox
             VerticalAlignment="Top"
-            materialDesign:HintAssist.Hint="Cargo:" x:Name="tbCargo"
+            materialDesign:HintAssist.Hint="Grado:" x:Name="tbCargo"
             Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="1" Margin="64,532,459,0" Height="36" />
         <TextBox
             VerticalAlignment="Top"
@@ -42,13 +42,14 @@
             <ComboBoxItem>Por Nupcias</ComboBoxItem>
             <ComboBoxItem>Comision de Servicio</ComboBoxItem>
             <ComboBoxItem>Maternidad</ComboBoxItem>
+            <ComboBoxItem>Paternidad</ComboBoxItem>
             <ComboBoxItem>Cita medica local</ComboBoxItem>
             <ComboBoxItem>Cita medica foranea</ComboBoxItem>
             <ComboBoxItem>Acompañante de cita medica</ComboBoxItem>
             <ComboBoxItem>Permiso para llegar tarde</ComboBoxItem>
             <ComboBoxItem>FALTA NO JUSTIFICADA</ComboBoxItem>
         </ComboBox>
-        <Button x:Name="btnGuardar" Grid.Column="1" Content="Guardar Falta" HorizontalAlignment="Left" Margin="436,617,0,0" VerticalAlignment="Top" Click="btnGuardar_Click"/>
+        <Button x:Name="btnGuardar" Grid.Column="1" Content="Guardar Falta" HorizontalAlignment="Left" Margin="322,617,0,0" VerticalAlignment="Top" Click="btnGuardar_Click" Height="43" Width="130"/>
         <Button x:Name="btnSeleccionar" Grid.Column="1" Content="Seleccionar motivo de falta" HorizontalAlignment="Left" Margin="436,532,0,0" VerticalAlignment="Top" Click="btnSeleccionar_Click"/>
         <Label Content="Fecha Inicio Falta:" Grid.Column="1" HorizontalAlignment="Left" Margin="398,335,0,0" VerticalAlignment="Top"/>
         <DatePicker x:Name="dpFechaInicioFalta" Grid.Column="1" HorizontalAlignment="Left" Margin="400,364,0,0" VerticalAlignment="Top"/>
@@ -71,6 +72,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <TextBlock Name="txtClock" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="146,617,0,0" FontSize="16"/>
-        <Button x:Name="btnActualizarFalta" Content="Actualizar Falta" HorizontalAlignment="Left" Margin="130,617,0,0" VerticalAlignment="Top" Width="145" Click="btnActualizarFalta_Click" Grid.Column="1"/>
+        <Button x:Name="btnActualizarFalta" Content="Actualizar Falta" HorizontalAlignment="Left" Margin="495,617,0,0" VerticalAlignment="Top" Width="153" Click="btnActualizarFalta_Click" Grid.Column="1" Height="43"/>
+        <Button x:Name="btnBuscar" Content="Buscar Empleado" HorizontalAlignment="Left" Margin="128,617,0,0" VerticalAlignment="Top" Width="148" Height="43" Grid.Column="1" Click="btnBuscar_Click"/>
     </Grid>
 </Window>

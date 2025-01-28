@@ -226,6 +226,50 @@ namespace chk.Servicios
             return cantidad;
         }
 
+        public static Empleado ObtenerEmpleadoPorMatricula(string matricula)
+        {
+            Empleado empleado = null;
+
+            try
+            {
+                using (var conn = DatabaseHelper.GetConnection())
+                {
+                    conn.Open();
+
+                    using (var command = conn.CreateCommand())
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.CommandText = "ObtenerEmpleadoPorMatricula"; // Nombre del procedimiento almacenado
+
+                        // Agregar parámetro
+                        command.Parameters.Add(new MySqlParameter("pMatricula", MySqlDbType.VarChar) { Value = matricula });
+
+                        using (DbDataReader dr = command.ExecuteReader())
+                        {
+                            if (dr.Read())
+                            {
+                                empleado = new Empleado
+                                {
+                                    Id = dr["Id"] != DBNull.Value ? Convert.ToInt32(dr["Id"]) : 0,
+                                    Matricula = dr["Matricula"]?.ToString() ?? string.Empty,
+                                    Departamento = dr["Departamento"]?.ToString() ?? string.Empty,
+                                    Nombre = dr["Nombre"]?.ToString() ?? string.Empty,
+                                    Apellido = dr["Apellido"]?.ToString() ?? string.Empty,
+                                    Grado = dr["Grado"]?.ToString() ?? string.Empty,
+                                };
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener el empleado: " + ex.Message, "Error");
+            }
+
+            return empleado;
+        }
+
 
     }
 }
