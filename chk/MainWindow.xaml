@@ -99,9 +99,12 @@
             </Grid>
         </materialDesign:Card>
         <Rectangle Stroke="Black" Grid.ColumnSpan="4" Fill="#08426c" Height="100" VerticalAlignment="Top"/>
-        <Label Grid.Column="1" Content="Tablero de Administración" HorizontalAlignment="Left" Margin="10,23,0,0" VerticalAlignment="Top" FontFamily="Arial Black" Foreground="#E5FFFFFF" FontSize="40" Grid.ColumnSpan="3" Width="600"/>
-        <Button x:Name="btnRespaldo" Content="Realizar Respaldo" HorizontalAlignment="Center" Margin="0,618,0,0" VerticalAlignment="Top" Height="40" Click="btnRespaldo_Click"/>
-        <Button x:Name="btnCerrarSesion" Grid.Column="3" Content="Cerrrar Sesion" HorizontalAlignment="Left" Margin="69,628,0,0" VerticalAlignment="Top" Width="137" Height="40" Click="BtnCerrarSesion_Click"/>
-        <Button x:Name="btnRegistroEventos" Grid.Column="3" Content="Registro de eventos" Margin="48,156,27,0" VerticalAlignment="Top" Click="btnRegistroEventos_Click" Height="41" />
+        <Label Content="Tablero de Administración ⚓" HorizontalAlignment="Left" Margin="52,18,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" Foreground="White" Height="58" Grid.ColumnSpan="2" Width="508" Grid.Column="1"/>
+        <Button x:Name="btnRespaldo" Content="Realizar Respaldo" HorizontalAlignment="Left" Margin="48,622,0,46" Click="btnRespaldo_Click"/>
+        <Button x:Name="btnCerrarSesion" Grid.Column="3" Content="Cerrrar Sesion" HorizontalAlignment="Right" Margin="0,622,41,46" Width="137" Click="BtnCerrarSesion_Click"/>
+        <Button x:Name="btnRegistroEventos" Grid.Column="3" Content="Registro de eventos" Margin="0,156,27,0" VerticalAlignment="Top" Click="btnRegistroEventos_Click" Height="41" HorizontalAlignment="Right" Width="165" />
+        <Button x:Name="btnListaAsistencia" Grid.Column="1" Content="Lista de Asistencia" HorizontalAlignment="Center" Margin="0,622,0,0" Width="170" Click="btnListaAsistencia_Click" Height="32" VerticalAlignment="Top"/>
+        <Button x:Name="btnListaFaltas" Grid.Column="2" Content="Lista de Faltas" HorizontalAlignment="Center" Margin="0,622,0,0" Width="150" Click="btnListaFaltas_Click" Height="32" VerticalAlignment="Top"/>
+        <Button x:Name="btnUsuarios" Content="Usuarios" HorizontalAlignment="Left" Margin="77,156,0,0" VerticalAlignment="Top" Height="41" Width="115" Click="btnUsuarios_Click"/>
     </Grid>
 </Window>

@@ -31,6 +31,9 @@
     <Compile Update="Registros.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Usuarios.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="VerificationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -55,6 +58,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Registros.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Usuarios.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

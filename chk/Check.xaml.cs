@@ -8,6 +8,7 @@ using chk.Modelos;
 using chk.Servicios;
 using System.Windows.Forms;
 using System.Windows.Media.Imaging;
+using System.Drawing;
 
 
 
@@ -93,6 +94,13 @@ namespace chk
                     }));
                 }
             }
+            Bitmap huellaBitmap = ConvertSampleToBitmap(Sample);
+
+            if (huellaBitmap != null)
+            {
+                // Convierte el Bitmap a BitmapImage y lo muestra en el control Image de WPF
+                this.Dispatcher.Invoke(() => imgHuella.Source = ConvertBitmapToBitmapImage(huellaBitmap));
+            }
         }
 
         protected void Start()
@@ -147,6 +155,30 @@ namespace chk
             else
                 return null;
         }
+
+        private Bitmap ConvertSampleToBitmap(DPFP.Sample Sample)
+        {
+            DPFP.Capture.SampleConversion Convertor = new DPFP.Capture.SampleConversion();
+            Bitmap bitmap = null;
+            Convertor.ConvertToPicture(Sample, ref bitmap);
+            return bitmap;
+        }
+
+        private BitmapImage ConvertBitmapToBitmapImage(Bitmap bitmap)
+        {
+            using (MemoryStream memory = new MemoryStream())
+            {
+                bitmap.Save(memory, System.Drawing.Imaging.ImageFormat.Bmp);
+                memory.Position = 0;
+                BitmapImage bitmapImage = new BitmapImage();
+                bitmapImage.BeginInit();
+                bitmapImage.StreamSource = memory;
+                bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+                bitmapImage.EndInit();
+                return bitmapImage;
+            }
+        }
+
 
 
         //Metodo para desplegar los datos del empleado

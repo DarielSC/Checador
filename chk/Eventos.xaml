@@ -28,7 +28,7 @@
                 <DataGridTextColumn Header="Detalle" Binding="{Binding Detalle}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Label Content="Tablero de Eventos" HorizontalAlignment="Left" Margin="190,30,0,0" VerticalAlignment="Top" FontFamily="Arial Black" Foreground="#08426c" FontSize="40" Width="500" Grid.Column="1"/>
+        <Label Content="Tablero de Eventos 👁️‍🗨️" HorizontalAlignment="Left" Margin="190,40,0,0" VerticalAlignment="Top" FontFamily="Arial Black" Foreground="#08426c" FontSize="40" Width="500" Grid.Column="1"/>
 
     </Grid>
 </Window>

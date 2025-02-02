@@ -31,6 +31,7 @@ namespace chk
             if (SesionUsuario.Rol == "mod")
             {
                 btnEmpleados.IsEnabled = false; // Moderador no puede gestionar empleados
+                btnUsuarios.IsEnabled = false; // Moderador no puede gestionar usuarios
             }
             else if (SesionUsuario.Rol == "admin")
             {
@@ -99,6 +100,24 @@ namespace chk
         {
             Eventos eventos = new Eventos();
             eventos.Show();
-        } 
+        }
+
+        private void btnListaAsistencia_Click(object sender, RoutedEventArgs e)
+        {
+           Window1 Asistencia = new Window1();
+            Asistencia.Show();
+        }
+
+        private void btnListaFaltas_Click(object sender, RoutedEventArgs e)
+        {
+            Faltas faltas = new Faltas();
+            faltas.Show();
+        }
+
+        private void btnUsuarios_Click(object sender, RoutedEventArgs e)
+        {
+            Usuarios usuarios = new Usuarios();
+            usuarios.Show();
+        }
     }
 }
