@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using chk.Servicios;
 using chk.Modelos;
 using System.IO;
+
 namespace chk
 {
     /// <summary>
@@ -86,6 +87,11 @@ namespace chk
         {
             ComboBoxItem rol = (ComboBoxItem)cbRol.SelectedItem;
             MessageBox.Show(rol.Content.ToString(), "Rol Seleccionado");
+        }
+
+        private void dgUsuarios_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

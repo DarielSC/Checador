@@ -91,7 +91,7 @@ namespace chk
             tbMatricula.Text = "";
             tbCondicion.Text = "";
             Template = null;
-            imgVerHuella.Visibility = Visibility.Hidden;
+            
         }
 
 
@@ -118,13 +118,6 @@ namespace chk
             tbGrado.Text = empleado.Grado;
             tbCondicion.Text = empleado.Condicion;
 
-
-            if (empleado.Huella != null)
-                imgVerHuella.Visibility = Visibility.Visible;
-            else
-                imgVerHuella.Visibility = Visibility.Hidden;
-
-
         }
 
         //Metodo para capturar la huella
@@ -144,7 +137,7 @@ namespace chk
                 if (Template != null)
                 {
                     MessageBox.Show("La Huella ha sido capturada correctamente", "Capturar Huella");
-                    imgVerHuella.Visibility = Visibility.Visible;
+                    
                 }
                 else
                     MessageBox.Show("The fingerprint template is not valid. Repeat fingerprint enrollment.", "Fingerprint Enrollment");

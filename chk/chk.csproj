@@ -10,6 +10,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\2808392.png" />
+    <None Remove="Resources\background.png" />
+    <None Remove="Resources\Huella.jpg" />
+    <None Remove="Resources\icono.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MaterialDesignColors" Version="3.1.0" />
     <PackageReference Include="MaterialDesignThemes" Version="5.1.0" />
     <PackageReference Include="MySql.Data" Version="9.1.0" />
@@ -42,6 +49,13 @@
     <Reference Include="WindowsFormsIntegration">
       <HintPath>..\..\..\..\..\..\Windows\Microsoft.NET\Framework\v4.0.30319\WPF\WindowsFormsIntegration.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\2808392.png" />
+    <Resource Include="Resources\background.png" />
+    <Resource Include="Resources\Huella.jpg" />
+    <Resource Include="Resources\icono.png" />
   </ItemGroup>
 
 </Project>

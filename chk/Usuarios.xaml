@@ -13,7 +13,7 @@
             <ColumnDefinition Width="800"/>
             <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
-        <DataGrid ItemsSource="{Binding}" x:Name="dgUsuarios" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True"  d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Column="1" Margin="3,10,0,50" HorizontalAlignment="Left" Width="552">
+        <DataGrid ItemsSource="{Binding}" x:Name="dgUsuarios" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True"  d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Column="1" Margin="3,10,0,50" HorizontalAlignment="Left" Width="552" SelectionChanged="dgUsuarios_SelectionChanged">
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="{x:Type DataGridColumnHeader}"/>
             </DataGrid.ColumnHeaderStyle>

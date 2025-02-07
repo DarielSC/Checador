@@ -134,3 +134,5 @@ C:\Users\darie\source\repos\chk - copia\chk\obj\Debug\net8.0-windows\Eventos.g.c
 C:\Users\darie\source\repos\chk - copia\chk\obj\Debug\net8.0-windows\Eventos.baml
 C:\Users\darie\source\repos\chk - copia\chk\obj\Debug\net8.0-windows\Usuarios.g.cs
 C:\Users\darie\source\repos\chk - copia\chk\obj\Debug\net8.0-windows\Usuarios.baml
+C:\Users\darie\source\repos\chk - copia\chk\obj\Debug\net8.0-windows\Comparativa.g.cs
+C:\Users\darie\source\repos\chk - copia\chk\obj\Debug\net8.0-windows\Comparativa.baml

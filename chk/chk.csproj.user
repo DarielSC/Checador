@@ -13,6 +13,9 @@
     <Compile Update="Check.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Comparativa.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Empleados.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -40,6 +43,9 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="Check.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Comparativa.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Empleados.xaml">

@@ -288,18 +288,13 @@ namespace chk
 
 
 
-        //Metodo para abrir la ventana del registro de asistencias
-        private void btnEmpleados_Click(object sender, RoutedEventArgs e)
-        {
-            Window1 emp = new Window1();
-            emp.Show();
-        }
+     
 
-        //Metodo para abrir la ventana del registro de faltas
+        //Metodo para abrir la ventana del registro comparativo falta/asistencia
         private void btnFaltas_Click(object sender, RoutedEventArgs e)
         {
-            Faltas faltas = new Faltas();
-            faltas.Show();
+            Comparativa comparativa = new Comparativa();
+            comparativa.Show();
         }
     }
 }

@@ -21,14 +21,9 @@
         <Label Content="" x:Name="lblStatus" Height="53" Margin="0,621,465,0" VerticalAlignment="Top" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="425"/>
         <Label Content="" x:Name="lblReport" Height="53" Margin="0,621,10,0" VerticalAlignment="Top" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="425"/>
         <Label Content="Huella:" x:Name="lblHuella" Grid.Column="1" HorizontalAlignment="Left" Margin="352,207,0,0" VerticalAlignment="Top" Width="279" FontSize="30"/>
-        <Label Content="Por favor, Coloque su Huella para registrar su asistencia‼️ 📝" HorizontalAlignment="Left" Margin="98,26,0,0" VerticalAlignment="Top" Width="799" FontSize="30" RenderTransformOrigin="0.329,0.103" Grid.ColumnSpan="2"/>
+        <Label Content="¡¡Por favor, Coloque su Huella para registrar su asistencia! 📝" HorizontalAlignment="Center" Margin="0,22,0,0" VerticalAlignment="Top" Width="825" FontSize="30" RenderTransformOrigin="0.329,0.103" Grid.Column="1"/>
         <Image x:Name="imgHuella" Grid.Column="1" Width="308" HorizontalAlignment="Left" Margin="295,279,0,0" Height="273" VerticalAlignment="Top"/>
-
-        <Button x:Name="btnEmpleados"
-                    Margin="121,437,0,0"
-                    VerticalAlignment="Top"
-                    Style="{StaticResource MaterialDesignFloatingActionMiniButton}" HorizontalAlignment="Left" Width="72" Click="btnEmpleados_Click" Grid.Column="1" Height="76" Cursor="Hand" Content="Ver&#xD;&#xA; Tabla de&#xD;&#xA; asistencia"/>
-        <Button x:Name="btnFaltas" Grid.Column="1" Content=" Ver Tabla de Faltas" HorizontalAlignment="Left" Margin="58,530,0,0" VerticalAlignment="Top" Click="btnFaltas_Click" Width="192" RenderTransformOrigin="-1.592,-2.217"/>
+        <Button x:Name="btnFaltas" Grid.Column="1" Content=" Ver Tabla de Comparativa" HorizontalAlignment="Left" Margin="311,563,0,0" VerticalAlignment="Top" Click="btnFaltas_Click" Width="203" RenderTransformOrigin="-1.592,-2.217" Height="46"/>
 
     </Grid>
 </Window>

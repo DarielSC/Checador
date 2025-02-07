@@ -161,6 +161,97 @@ namespace chk.Servicios
 
             return cantidad;
         }
+
+        public static List<ComparativaAsistencia> ObtenerComparativaAsistencia()
+        {
+            List<ComparativaAsistencia> listaComparativa = new List<ComparativaAsistencia>();
+
+            try
+            {
+                using (var conn = DatabaseHelper.GetConnection())
+                {
+                    conn.Open();
+
+                    using (var command = conn.CreateCommand())
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.CommandText = "ComparativaAsistencia";
+
+                        using (DbDataReader dr = command.ExecuteReader())
+                        {
+                            if (dr.HasRows)
+                            {
+                                while (dr.Read())
+                                {
+                                    ComparativaAsistencia comparativa = new ComparativaAsistencia
+                                    {
+                                        MatriculaRepetida = dr["MatriculaRepetida"] != DBNull.Value ? dr["MatriculaRepetida"].ToString() : string.Empty,
+                                        MatriculaNoRepetida = dr["MatriculaNoRepetida"] != DBNull.Value ? dr["MatriculaNoRepetida"].ToString() : string.Empty
+                                    };
+
+                                    listaComparativa.Add(comparativa);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return listaComparativa;
+        }
+
+        public static Asistencia ObtenerUltimaAsistenciaPorMatricula(string matricula)
+        {
+            Asistencia asistencia = null;
+
+            try
+            {
+                using (var conn = DatabaseHelper.GetConnection())
+                {
+                    conn.Open();
+
+                    using (var command = conn.CreateCommand())
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.CommandText = "ObtenerUltimaAsistencia"; // Nombre del procedimiento almacenado
+
+                        // Agregar parámetro
+                        command.Parameters.Add(new MySqlParameter("pMatricula", MySqlDbType.VarChar) { Value = matricula });
+
+                        using (DbDataReader dr = command.ExecuteReader())
+                        {
+                            if (dr.Read())
+                            {
+                                asistencia = new Asistencia
+                                {
+
+                                    IDRegistro = dr["IDRegistro"] != DBNull.Value ? Convert.ToInt32(dr["IDRegistro"]) : 0,
+                                    Matricula = dr["Matricula"]?.ToString() ?? string.Empty,
+                                    Nombre = dr["Nombre"]?.ToString() ?? string.Empty,
+                                    Apellido = dr["Apellido"]?.ToString() ?? string.Empty,
+                                    Grado = dr["Cargo"]?.ToString() ?? string.Empty,
+                                    Departamento = dr["Departamento"]?.ToString() ?? string.Empty,
+                                    FechaHoraAsistencia = dr["FechaHoraAsistencia"] != DBNull.Value ? Convert.ToDateTime(dr["FechaHoraAsistencia"]) : DateTime.MinValue,
+                                   
+                                };
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener la última asistencia: " + ex.Message, "Error");
+            }
+
+            return asistencia;
+        }
+
+
     }
 }
 
