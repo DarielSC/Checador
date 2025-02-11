@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\darie\source\repos\chk - copia\chk\obj\Release\net8.0-windows\
+C:\Users\ADMIN-COMPUTO\Source\Repos\Checador\chk\obj\Release\net8.0-windows\
 chk
 none
 false
 TRACE;RELEASE;NET;NET8_0;NETCOREAPP
-C:\Users\darie\source\repos\chk - copia\chk\App.xaml
-32075563952
+C:\Users\ADMIN-COMPUTO\Source\Repos\Checador\chk\App.xaml
+9524337431
 
-11675983205
-220-2139937659
-Check.xaml;Empleados.xaml;MainWindow.xaml;
+291032036852
+22099408642
+Check.xaml;Comparativa.xaml;Empleados.xaml;Eventos.xaml;Faltas.xaml;Login.xaml;MainWindow.xaml;Registros.xaml;Usuarios.xaml;
 
-True
+False
 

@@ -94,13 +94,7 @@ namespace chk
                     }));
                 }
             }
-            Bitmap huellaBitmap = ConvertSampleToBitmap(Sample);
-
-            if (huellaBitmap != null)
-            {
-                // Convierte el Bitmap a BitmapImage y lo muestra en el control Image de WPF
-                this.Dispatcher.Invoke(() => imgHuella.Source = ConvertBitmapToBitmapImage(huellaBitmap));
-            }
+            Bitmap huellaBitmap = ConvertSampleToBitmap(Sample); 
         }
 
         protected void Start()
@@ -273,7 +267,7 @@ namespace chk
 
                 if (resultado > 0)
                 {
-                    System.Windows.MessageBox.Show("Asistencia registrada exitosamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                    // Registro Automatico de la asistencia xd 
                 }
                 else
                 {
@@ -284,17 +278,6 @@ namespace chk
             {
                 System.Windows.MessageBox.Show($"Error al registrar asistencia: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-        }
-
-
-
-     
-
-        //Metodo para abrir la ventana del registro comparativo falta/asistencia
-        private void btnFaltas_Click(object sender, RoutedEventArgs e)
-        {
-            Comparativa comparativa = new Comparativa();
-            comparativa.Show();
         }
     }
 }

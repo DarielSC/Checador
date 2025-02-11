@@ -34,8 +34,8 @@
             <ComboBoxItem Content="admin"/>
             <ComboBoxItem Content="mod"/>
         </ComboBox>
-        <Button x:Name="btnRegistar" Grid.Column="1" Content="Registrar Usuario" HorizontalAlignment="Left" Margin="600,392,0,0" VerticalAlignment="Top" Click="btnRegistar_Click" Width="150" Height="35"/>
-        <Button x:Name="btnSeleccionar" Grid.Column="1" Content="Seleccionar Rol" HorizontalAlignment="Left" Margin="598,0,0,0" VerticalAlignment="Center" Height="36" RenderTransformOrigin="0.5,0.5" Width="149" Click="btnSeleccionar_Click"/>
+        <Button x:Name="btnRegistar" Grid.Column="1" Content="Registrar Usuario" Margin="600,392,50,277" Click="btnRegistar_Click"/>
+        <Button x:Name="btnSeleccionar" Grid.Column="1" Content="Seleccionar Rol" Margin="598,334,53,334" RenderTransformOrigin="0.5,0.5" Click="btnSeleccionar_Click"/>
         <Label Grid.Column="1" Content="Rol" HorizontalAlignment="Left" Margin="576,201,0,0" VerticalAlignment="Top"/>
 
     </Grid>

@@ -17,7 +17,7 @@
             <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
 
-        <DataGrid ItemsSource="{Binding}" x:Name="dgEmpleados" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" d:ItemsSource="{d:SampleData ItemCount=7}" Margin="10,24,243,0" SelectionChanged="dgEmpleados_SelectionChanged" Height="654" VerticalAlignment="Top" Grid.ColumnSpan="5">
+        <DataGrid ItemsSource="{Binding}" x:Name="dgEmpleados" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" d:ItemsSource="{d:SampleData ItemCount=7}" Margin="10,24,0,0" SelectionChanged="dgEmpleados_SelectionChanged" Height="654" VerticalAlignment="Top" Grid.ColumnSpan="5" HorizontalAlignment="Left" Width="661">
 
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="{x:Type DataGridColumnHeader}">

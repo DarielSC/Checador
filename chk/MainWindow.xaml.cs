@@ -119,5 +119,11 @@ namespace chk
             Usuarios usuarios = new Usuarios();
             usuarios.Show();
         }
+
+        private void btnComparar_Click(object sender, RoutedEventArgs e)
+        {
+            Comparativa comparativa = new Comparativa();
+            comparativa.Show();
+        }
     }
 }

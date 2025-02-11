@@ -50,15 +50,19 @@ namespace chk
             }
 
             Asistencia asistencia = DatoAsistencia.ObtenerUltimaAsistenciaPorMatricula(matricula);
+            Empleado empleado = DatoEmpleado.ObtenerEmpleadoPorMatricula(matricula);
 
             if (asistencia != null)
             {
-                lblMatricula.Content = asistencia.Matricula;
-                lblNombre.Content = asistencia.Nombre;
-                lblApellido.Content = asistencia.Apellido;
-                lblDepartamento.Content = asistencia.Departamento;
-                lblGrado.Content = asistencia.Grado;
                 lblFechaHoraAsistencia.Content = asistencia.FechaHoraAsistencia;
+            }
+            if (empleado != null)
+            {
+                lblMatricula.Content = empleado.Matricula;
+                lblNombre.Content = empleado.Nombre;    
+                lblApellido.Content = empleado.Apellido;
+                lblGrado.Content = empleado.Grado;  
+                lblDepartamento.Content = empleado.Departamento;
             }
 
         }

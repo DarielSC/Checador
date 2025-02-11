@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\darie\\source\\repos\\chk - copia\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C06D5EDA-8DB8-4633-996E-B32F1ADB35AE}|chk\\chk.csproj|c:\\users\\darie\\source\\repos\\chk - copia\\chk\\comparativa.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C06D5EDA-8DB8-4633-996E-B32F1ADB35AE}|chk\\chk.csproj|solutionrelative:chk\\comparativa.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C06D5EDA-8DB8-4633-996E-B32F1ADB35AE}|chk\\chk.csproj|c:\\users\\darie\\source\\repos\\chk - copia\\chk\\modelos\\asistencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C06D5EDA-8DB8-4633-996E-B32F1ADB35AE}|chk\\chk.csproj|solutionrelative:chk\\modelos\\asistencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C06D5EDA-8DB8-4633-996E-B32F1ADB35AE}|chk\\chk.csproj|c:\\users\\darie\\source\\repos\\chk - copia\\chk\\servicios\\datoasistencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C06D5EDA-8DB8-4633-996E-B32F1ADB35AE}|chk\\chk.csproj|solutionrelative:chk\\servicios\\datoasistencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C06D5EDA-8DB8-4633-996E-B32F1ADB35AE}|chk\\chk.csproj|c:\\users\\darie\\source\\repos\\chk - copia\\chk\\empleados.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C06D5EDA-8DB8-4633-996E-B32F1ADB35AE}|chk\\chk.csproj|solutionrelative:chk\\empleados.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C06D5EDA-8DB8-4633-996E-B32F1ADB35AE}|chk\\chk.csproj|c:\\users\\darie\\source\\repos\\chk - copia\\chk\\check.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C06D5EDA-8DB8-4633-996E-B32F1ADB35AE}|chk\\chk.csproj|solutionrelative:chk\\check.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C06D5EDA-8DB8-4633-996E-B32F1ADB35AE}|chk\\chk.csproj|c:\\users\\darie\\source\\repos\\chk - copia\\chk\\check.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{C06D5EDA-8DB8-4633-996E-B32F1ADB35AE}|chk\\chk.csproj|solutionrelative:chk\\check.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C06D5EDA-8DB8-4633-996E-B32F1ADB35AE}|chk\\chk.csproj|c:\\users\\darie\\source\\repos\\chk - copia\\chk\\comparativa.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C06D5EDA-8DB8-4633-996E-B32F1ADB35AE}|chk\\chk.csproj|solutionrelative:chk\\comparativa.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C06D5EDA-8DB8-4633-996E-B32F1ADB35AE}|chk\\chk.csproj|c:\\users\\darie\\source\\repos\\chk - copia\\chk\\usuarios.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{C06D5EDA-8DB8-4633-996E-B32F1ADB35AE}|chk\\chk.csproj|solutionrelative:chk\\usuarios.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C06D5EDA-8DB8-4633-996E-B32F1ADB35AE}|chk\\chk.csproj|c:\\users\\darie\\source\\repos\\chk - copia\\chk\\comparativa.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -30,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 257,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,67 +42,74 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Asistencia.cs",
-              "DocumentMoniker": "C:\\Users\\darie\\source\\repos\\chk - copia\\chk\\Modelos\\Asistencia.cs",
-              "RelativeDocumentMoniker": "chk\\Modelos\\Asistencia.cs",
-              "ToolTip": "C:\\Users\\darie\\source\\repos\\chk - copia\\chk\\Modelos\\Asistencia.cs",
-              "RelativeToolTip": "chk\\Modelos\\Asistencia.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T05:47:37.39Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "DatoAsistencia.cs",
               "DocumentMoniker": "C:\\Users\\darie\\source\\repos\\chk - copia\\chk\\Servicios\\DatoAsistencia.cs",
               "RelativeDocumentMoniker": "chk\\Servicios\\DatoAsistencia.cs",
               "ToolTip": "C:\\Users\\darie\\source\\repos\\chk - copia\\chk\\Servicios\\DatoAsistencia.cs",
               "RelativeToolTip": "chk\\Servicios\\DatoAsistencia.cs",
-              "ViewState": "AgIAAMwAAAAAAAAAAAAQwOYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAADAAAABkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-06T19:53:06.141Z",
+              "WhenOpened": "2025-02-11T18:55:23.907Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Check.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\darie\\source\\repos\\chk - copia\\chk\\Check.xaml.cs",
+              "RelativeDocumentMoniker": "chk\\Check.xaml.cs",
+              "ToolTip": "C:\\Users\\darie\\source\\repos\\chk - copia\\chk\\Check.xaml.cs",
+              "RelativeToolTip": "chk\\Check.xaml.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAgwBAAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T17:48:00.082Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Check.xaml",
+              "DocumentMoniker": "C:\\Users\\darie\\source\\repos\\chk - copia\\chk\\Check.xaml",
+              "RelativeDocumentMoniker": "chk\\Check.xaml",
+              "ToolTip": "C:\\Users\\darie\\source\\repos\\chk - copia\\chk\\Check.xaml",
+              "RelativeToolTip": "chk\\Check.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-11T17:47:57.809Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Empleados.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\darie\\source\\repos\\chk - copia\\chk\\Empleados.xaml.cs",
-              "RelativeDocumentMoniker": "chk\\Empleados.xaml.cs",
-              "ToolTip": "C:\\Users\\darie\\source\\repos\\chk - copia\\chk\\Empleados.xaml.cs",
-              "RelativeToolTip": "chk\\Empleados.xaml.cs",
-              "ViewState": "AgIAANkAAAAAAAAAAAAYwOwAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-06T19:52:30.202Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "Comparativa.xaml.cs",
               "DocumentMoniker": "C:\\Users\\darie\\source\\repos\\chk - copia\\chk\\Comparativa.xaml.cs",
               "RelativeDocumentMoniker": "chk\\Comparativa.xaml.cs",
               "ToolTip": "C:\\Users\\darie\\source\\repos\\chk - copia\\chk\\Comparativa.xaml.cs",
               "RelativeToolTip": "chk\\Comparativa.xaml.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAAADwAAABQAAAAAAAAAA==",
+              "ViewState": "AgIAACUAAAAAAAAAAAASwEMAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-06T19:52:12.362Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-11T17:25:09.96Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Comparativa.xaml",
               "DocumentMoniker": "C:\\Users\\darie\\source\\repos\\chk - copia\\chk\\Comparativa.xaml",
               "RelativeDocumentMoniker": "chk\\Comparativa.xaml",
               "ToolTip": "C:\\Users\\darie\\source\\repos\\chk - copia\\chk\\Comparativa.xaml",
               "RelativeToolTip": "chk\\Comparativa.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-06T19:44:25.256Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-11T18:10:56.071Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Usuarios.xaml",
+              "DocumentMoniker": "C:\\Users\\darie\\source\\repos\\chk - copia\\chk\\Usuarios.xaml",
+              "RelativeDocumentMoniker": "chk\\Usuarios.xaml",
+              "ToolTip": "C:\\Users\\darie\\source\\repos\\chk - copia\\chk\\Usuarios.xaml",
+              "RelativeToolTip": "chk\\Usuarios.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-11T17:33:00.263Z"
             }
           ]
         }
