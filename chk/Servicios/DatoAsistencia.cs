@@ -162,7 +162,7 @@ namespace chk.Servicios
             return cantidad;
         }
 
-        public static List<ComparativaAsistencia> ObtenerComparativaAsistencia()
+        public static List<ComparativaAsistencia> ObtenerEmpleadosConAsistencia()
         {
             List<ComparativaAsistencia> listaComparativa = new List<ComparativaAsistencia>();
 
@@ -175,7 +175,7 @@ namespace chk.Servicios
                     using (var command = conn.CreateCommand())
                     {
                         command.CommandType = CommandType.StoredProcedure;
-                        command.CommandText = "ComparativaAsistencia";
+                        command.CommandText = "EmpleadosConAsistencia";
 
                         using (DbDataReader dr = command.ExecuteReader())
                         {
@@ -185,8 +185,12 @@ namespace chk.Servicios
                                 {
                                     ComparativaAsistencia comparativa = new ComparativaAsistencia
                                     {
-                                        MatriculaRepetida = dr["MatriculaRepetida"] != DBNull.Value ? dr["MatriculaRepetida"].ToString() : string.Empty,
-                                        MatriculaNoRepetida = dr["MatriculaNoRepetida"] != DBNull.Value ? dr["MatriculaNoRepetida"].ToString() : string.Empty
+                                        MatriculaRepetida = dr["Matricula"] != DBNull.Value ? dr["Matricula"].ToString() : string.Empty,
+                                        Nombre = dr["Nombre"] != DBNull.Value ? dr["Nombre"].ToString() : string.Empty,
+                                        Apellido = dr["Apellido"] != DBNull.Value ? dr["Apellido"].ToString() : string.Empty,
+                                        Cargo = dr["Cargo"] != DBNull.Value ? dr["Cargo"].ToString() : string.Empty,
+                                        Departamento = dr["Departamento"] != DBNull.Value ? dr["Departamento"].ToString() : string.Empty,
+                                        FechaHoraAsistencia = dr["FechaHoraAsistencia"] != DBNull.Value ? (DateTime?)dr["FechaHoraAsistencia"] : null
                                     };
 
                                     listaComparativa.Add(comparativa);
@@ -203,6 +207,54 @@ namespace chk.Servicios
 
             return listaComparativa;
         }
+
+        public static List<ComparativaAsistencia> ObtenerEmpleadosSinAsistencia()
+        {
+            List<ComparativaAsistencia> listaComparativa = new List<ComparativaAsistencia>();
+
+            try
+            {
+                using (var conn = DatabaseHelper.GetConnection())
+                {
+                    conn.Open();
+
+                    using (var command = conn.CreateCommand())
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.CommandText = "EmpleadosSinAsistencia";
+
+                        using (DbDataReader dr = command.ExecuteReader())
+                        {
+                            if (dr.HasRows)
+                            {
+                                while (dr.Read())
+                                {
+                                    ComparativaAsistencia comparativa = new ComparativaAsistencia
+                                    {
+                                        MatriculaNoRepetida = dr["Matricula"] != DBNull.Value ? dr["Matricula"].ToString() : string.Empty,
+                                        Nombre = dr["Nombre"] != DBNull.Value ? dr["Nombre"].ToString() : string.Empty,
+                                        Apellido = dr["Apellido"] != DBNull.Value ? dr["Apellido"].ToString() : string.Empty,
+                                        Cargo = dr["Cargo"] != DBNull.Value ? dr["Cargo"].ToString() : string.Empty,
+                                        Departamento = dr["Departamento"] != DBNull.Value ? dr["Departamento"].ToString() : string.Empty,
+                                        
+                                    };
+
+                                    listaComparativa.Add(comparativa);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return listaComparativa;
+        }
+
+
 
         public static Asistencia ObtenerUltimaAsistenciaPorMatricula(string matricula)
         {

@@ -44,7 +44,7 @@
                 </Button>
                 <StackPanel Grid.Row="1" Margin="8,147,8,18">
                     <TextBlock
-                        TextWrapping="Wrap" FontFamily="Arial Black" VerticalAlignment="Center" HorizontalAlignment="Center"><Run Text="AGREGAR Y EDITAR "/><Run Language="es-mx" Text=" "/><Run Text="USUARIOS"/></TextBlock>
+                        TextWrapping="Wrap" FontFamily="Arial Black" VerticalAlignment="Center" HorizontalAlignment="Center"><Run Text="AGREGAR Y EDITAR "/><Run Text=" "/><Run Language="es-mx" Text="EMPLEADOS"/><LineBreak/><Run Language="es-mx"/></TextBlock>
                 </StackPanel>
                 <StackPanel
                     Grid.Row="2"
@@ -99,13 +99,14 @@
             </Grid>
         </materialDesign:Card>
         <Rectangle Stroke="Black" Grid.ColumnSpan="4" Fill="#08426c" Height="100" VerticalAlignment="Top"/>
-        <Label Content="Tablero de Administración ⚓" HorizontalAlignment="Left" Margin="52,18,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" Foreground="White" Height="58" Grid.ColumnSpan="2" Width="508" Grid.Column="1"/>
+        <Label Content="Tablero de Administración ⚓" HorizontalAlignment="Left" Margin="18,18,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" Foreground="White" Height="58" Grid.ColumnSpan="2" Width="508" Grid.Column="1"/>
         <Button x:Name="btnRespaldo" Content="Realizar Respaldo" HorizontalAlignment="Left" Margin="77,622,0,46" Click="btnRespaldo_Click"/>
         <Button x:Name="btnCerrarSesion" Grid.Column="3" Content="Cerrrar Sesion" HorizontalAlignment="Right" Margin="0,622,79,46" Width="137" Click="BtnCerrarSesion_Click"/>
         <Button x:Name="btnRegistroEventos" Grid.Column="3" Content="Registro de eventos" Margin="0,156,27,0" VerticalAlignment="Top" Click="btnRegistroEventos_Click" Height="41" HorizontalAlignment="Right" Width="165" />
         <Button x:Name="btnListaAsistencia" Grid.Column="1" Content="Lista de Asistencia" HorizontalAlignment="Left" Margin="20,622,0,0" Width="170" Click="btnListaAsistencia_Click" Height="32" VerticalAlignment="Top"/>
-        <Button x:Name="btnListaFaltas" Grid.Column="2" Content="Lista de Faltas" HorizontalAlignment="Left" Margin="128,622,0,0" Width="150" Click="btnListaFaltas_Click" Height="32" VerticalAlignment="Top"/>
+        <Button x:Name="btnListaFaltas" Grid.Column="2" Content="Lista Motivos Falta" HorizontalAlignment="Left" Margin="120,622,0,0" Width="150" Click="btnListaFaltas_Click" Height="32" VerticalAlignment="Top"/>
         <Button x:Name="btnUsuarios" Content="Usuarios" HorizontalAlignment="Left" Margin="77,156,0,0" VerticalAlignment="Top" Height="41" Width="115" Click="btnUsuarios_Click"/>
         <Button x:Name="btnComparar" Grid.Column="1" Content="Lista Comparativa" HorizontalAlignment="Center" Margin="0,622,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Click="btnComparar_Click"/>
+        <Label x:Name="lblSaludo" Margin="236,28,10,0" VerticalAlignment="Top" FontSize="15" FontWeight="Bold" Foreground="White" Height="47" Grid.ColumnSpan="2" Grid.Column="2"/>
     </Grid>
 </Window>

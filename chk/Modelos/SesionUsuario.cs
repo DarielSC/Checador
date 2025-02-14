@@ -13,20 +13,25 @@ namespace chk.Modelos
     {
         public static string Usuario { get; private set; }
         public static string Rol { get; private set; }
+        public static string Nombre { get; private set; } // Nuevo campo para el nombre del usuario
 
-        public static void IniciarSesion(string usuario, string rol)
+        public static void IniciarSesion(string usuario, string rol, string nombre)
         {
             Usuario = usuario;
             Rol = rol;
-            DatoUsuario.RegistrarInicioSesion(usuario, rol); // Llamar al nuevo método
+            Nombre = nombre;
+            DatoUsuario.RegistrarInicioSesion(usuario, rol);
         }
 
         public static void CerrarSesion()
         {
-            DatoUsuario.RegistrarCierreSesion(Usuario, Rol); // Llamar al nuevo método
+            DatoUsuario.RegistrarCierreSesion(Usuario, Rol);
             Usuario = null;
             Rol = null;
+            Nombre = null;
         }
+
         public static bool EstaAutenticado => !string.IsNullOrEmpty(Usuario);
     }
 }
+

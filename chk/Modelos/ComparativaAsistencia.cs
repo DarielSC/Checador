@@ -10,6 +10,10 @@ namespace chk.Modelos
     {
         public string MatriculaRepetida { get; set; }
         public string MatriculaNoRepetida { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public string Cargo { get; set; }  // Grado o Cargo
+        public string Departamento { get; set; }
+        public DateTime? FechaHoraAsistencia { get; set; }
     }
-
 }

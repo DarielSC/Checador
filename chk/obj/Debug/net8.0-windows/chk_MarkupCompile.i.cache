@@ -8,12 +8,12 @@ C:\Users\darie\source\repos\chk - copia\chk\obj\Debug\net8.0-windows\
 chk
 none
 false
-TRACE;DEBUG;NET;NET8_0;NETCOREAPP
+TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 C:\Users\darie\source\repos\chk - copia\chk\App.xaml
 9524337431
 
 311241234701
-220774614032
+2201133409425
 Check.xaml;Comparativa.xaml;Empleados.xaml;Eventos.xaml;Faltas.xaml;Login.xaml;MainWindow.xaml;Registros.xaml;Usuarios.xaml;
 
 False

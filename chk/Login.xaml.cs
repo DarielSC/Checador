@@ -26,28 +26,7 @@ namespace chk
         }
 
 
-        private void BtnLogin_Click(object sender, RoutedEventArgs e)
-        {
-            string usuario = txtUsuario.Text;
-            string contrasena = txtContrasena.Password;
-
-            var (esValido, rolUsuario) = ValidarCredenciales(usuario, contrasena);
-
-            if (esValido)
-            {
-                SesionUsuario.IniciarSesion(usuario, rolUsuario);
-                this.DialogResult = true;
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Usuario o contraseña incorrectos", "Error");
-            }
-        }
-
-
-
-        private (bool esValido, string rolUsuario) ValidarCredenciales(string usuario, string contrasena)
+        private (bool esValido, string rolUsuario, string nombreUsuario) ValidarCredenciales(string usuario, string contrasena)
         {
             try
             {
@@ -55,7 +34,7 @@ namespace chk
                 {
                     conn.Open();
 
-                    string query = "SELECT Contrasena, Rol FROM Administradores WHERE Usuario = @Usuario";
+                    string query = "SELECT Contrasena, Rol, Nombre FROM Administradores WHERE Usuario = @Usuario";
                     using (var cmd = new MySqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@Usuario", usuario);
@@ -66,11 +45,12 @@ namespace chk
                             {
                                 string contrasenaAlmacenada = reader.GetString("Contrasena");
                                 string rol = reader.GetString("Rol");
+                                string nombre = reader.GetString("Nombre"); // Obtener el nombre
                                 string contrasenaHasheada = HashPassword(contrasena);
 
                                 if (contrasenaHasheada == contrasenaAlmacenada)
                                 {
-                                    return (true, rol);
+                                    return (true, rol, nombre); // Retornar el nombre junto con la validación
                                 }
                             }
                         }
@@ -86,8 +66,28 @@ namespace chk
                 MessageBox.Show("Error inesperado: " + ex.Message, "Error");
             }
 
-            return (false, null);
+            return (false, null, null);
         }
+
+        private void BtnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            string usuario = txtUsuario.Text;
+            string contrasena = txtContrasena.Password;
+
+            var (esValido, rolUsuario, nombreUsuario) = ValidarCredenciales(usuario, contrasena);
+
+            if (esValido)
+            {
+                SesionUsuario.IniciarSesion(usuario, rolUsuario, nombreUsuario);
+                this.DialogResult = true;
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Usuario o contraseña incorrectos", "Error");
+            }
+        }
+
 
 
         private string HashPassword(string password)

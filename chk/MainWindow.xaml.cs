@@ -28,6 +28,8 @@ namespace chk
 
         private void ConfigurarUI()
         {
+            MostrarSaludoUsuario(); // Llamar al método para mostrar el saludo
+
             if (SesionUsuario.Rol == "mod")
             {
                 btnEmpleados.IsEnabled = false; // Moderador no puede gestionar empleados
@@ -125,5 +127,25 @@ namespace chk
             Comparativa comparativa = new Comparativa();
             comparativa.Show();
         }
+
+        private void MostrarSaludoUsuario()
+        {
+            string saludo = ObtenerSaludo();
+            string fechaActual = DateTime.Now.ToString("dd/MM/yyyy");
+            lblSaludo.Content = $"{saludo}, {SesionUsuario.Nombre}! Hoy es {fechaActual}.";
+        }
+
+        private string ObtenerSaludo()
+        {
+            int hora = DateTime.Now.Hour;
+
+            if (hora >= 5 && hora < 12)
+                return "Buenos días";
+            else if (hora >= 12 && hora < 18)
+                return "Buenas tardes";
+            else
+                return "Buenas noches";
+        }
+
     }
 }

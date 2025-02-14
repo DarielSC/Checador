@@ -30,40 +30,14 @@ namespace chk
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             lblFechaActual.Content = DateTime.Now.ToString("dd/MM/yyyy");
-            dgComparar.ItemsSource = DatoAsistencia.ObtenerComparativaAsistencia();
+            dgMotivosFaltas.DataContext = DatoFalta.MuestraFalta();
+            dgAsistencia.DataContext = DatoAsistencia.ObtenerEmpleadosConAsistencia();
+            dgFaltas.DataContext = DatoAsistencia.ObtenerEmpleadosSinAsistencia();
         }
 
-        private void dgUsuarios_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+        private void dgFaltas_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
-
-        }
-
-        private void btnBuscar_Click(object sender, RoutedEventArgs e)
-        {
-            string matricula = tbBuscar.Text.Trim();
-
-            if (string.IsNullOrEmpty(matricula))
-            {
-                MessageBox.Show("Por favor, ingrese una matrícula.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
-            Asistencia asistencia = DatoAsistencia.ObtenerUltimaAsistenciaPorMatricula(matricula);
-            Empleado empleado = DatoEmpleado.ObtenerEmpleadoPorMatricula(matricula);
-
-            if (asistencia != null)
-            {
-                lblFechaHoraAsistencia.Content = asistencia.FechaHoraAsistencia;
-            }
-            if (empleado != null)
-            {
-                lblMatricula.Content = empleado.Matricula;
-                lblNombre.Content = empleado.Nombre;    
-                lblApellido.Content = empleado.Apellido;
-                lblGrado.Content = empleado.Grado;  
-                lblDepartamento.Content = empleado.Departamento;
-            }
 
         }
     }

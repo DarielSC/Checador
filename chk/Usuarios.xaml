@@ -13,30 +13,62 @@
             <ColumnDefinition Width="800"/>
             <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
-        <DataGrid ItemsSource="{Binding}" x:Name="dgUsuarios" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True"  d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Column="1" Margin="3,10,0,50" HorizontalAlignment="Left" Width="552" SelectionChanged="dgUsuarios_SelectionChanged">
+
+        <!-- DataGrid mejorado -->
+        <DataGrid ItemsSource="{Binding}" 
+                  x:Name="dgUsuarios" 
+                  AutoGenerateColumns="False" 
+                  CanUserAddRows="False" 
+                  IsReadOnly="True"  
+                  d:ItemsSource="{d:SampleData ItemCount=5}" 
+                  Margin="18,30,0,30" 
+                  HorizontalAlignment="Left" 
+                  Width="750" 
+                  SelectionChanged="dgUsuarios_SelectionChanged" Grid.ColumnSpan="2">
+
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="{x:Type DataGridColumnHeader}"/>
             </DataGrid.ColumnHeaderStyle>
 
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}" Visibility="Hidden"/>
-                <DataGridTextColumn Header="Matricula" Binding="{Binding Matricula}"/>
-                <DataGridTextColumn Header="Rol" Binding="{Binding Rol}"/>
-                <DataGridTextColumn Header="FechaRegistro" Binding="{Binding FechaRegistro}"/>
-                <DataGridTextColumn Header="Contrasena" Binding="{Binding Contrasena}"/>
+                <DataGridTextColumn Header="Matricula" Binding="{Binding Matricula}" Width="120"/>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="150"/>
+                <DataGridTextColumn Header="Apellido" Binding="{Binding Apellido}" Width="150"/>
+                <DataGridTextColumn Header="Rol" Binding="{Binding Rol}" Width="100"/>
+                <DataGridTextColumn Header="Fecha Registro" Binding="{Binding FechaRegistro, StringFormat=\{0:dd/MM/yyyy HH:mm\}}" Width="150"/>
+                <DataGridTextColumn Header="Contraseña" Binding="{Binding Contrasena}" Visibility="Hidden"/>
             </DataGrid.Columns>
 
         </DataGrid>
-        <TextBox x:Name="tbUsuario" Grid.Column="1" HorizontalAlignment="Left" Margin="576,41,0,0" TextWrapping="Wrap" Text="Matricula" VerticalAlignment="Top" Width="198" Height="38"/>
-        <PasswordBox x:Name="tbContrasena" Grid.Column="1" HorizontalAlignment="Left" Margin="576,136,0,0" VerticalAlignment="Top" Width="190" Height="35"/>
-        <Label Grid.Column="1" Content="Contraseña:" HorizontalAlignment="Left" Margin="576,107,0,0" VerticalAlignment="Top" Width="99"/>
-        <ComboBox x:Name="cbRol" Grid.Column="1" HorizontalAlignment="Left" Margin="576,230,0,0" VerticalAlignment="Top" Width="190" Height="37">
+
+        <!-- Controles de Registro -->
+        <TextBox x:Name="tbUsuario" Grid.Column="1" HorizontalAlignment="Left" Margin="690,37,0,0" 
+                 TextWrapping="Wrap" Text="Matrícula" VerticalAlignment="Top" Width="198" Height="38" Grid.ColumnSpan="2"/>
+
+        <PasswordBox x:Name="tbContrasena" Grid.Column="1" HorizontalAlignment="Left" Margin="670,136,0,0" 
+                     VerticalAlignment="Top" Width="190" Height="35" Grid.ColumnSpan="2"/>
+
+        <Label Grid.Column="1" Content="Contraseña:" HorizontalAlignment="Left" Margin="686,110,0,0" 
+               VerticalAlignment="Top" Width="99"/>
+
+        <ComboBox x:Name="cbRol" Grid.Column="1" HorizontalAlignment="Left" Margin="675,230,0,0" 
+                  VerticalAlignment="Top" Width="190" Height="37" Grid.ColumnSpan="2">
             <ComboBoxItem Content="admin"/>
             <ComboBoxItem Content="mod"/>
         </ComboBox>
-        <Button x:Name="btnRegistar" Grid.Column="1" Content="Registrar Usuario" Margin="600,392,50,277" Click="btnRegistar_Click"/>
-        <Button x:Name="btnSeleccionar" Grid.Column="1" Content="Seleccionar Rol" Margin="598,334,53,334" RenderTransformOrigin="0.5,0.5" Click="btnSeleccionar_Click"/>
-        <Label Grid.Column="1" Content="Rol" HorizontalAlignment="Left" Margin="576,201,0,0" VerticalAlignment="Top"/>
+
+        <Button x:Name="btnRegistrar" Grid.Column="1" Content="Registrar Usuario" Margin="701,383,49,289" 
+                Click="btnRegistrar_Click" Grid.ColumnSpan="2"/>
+
+        <Button x:Name="btnSeleccionar" Grid.Column="1" Content="Seleccionar Rol" Margin="700,316,51,356" 
+                RenderTransformOrigin="0.5,0.5" Click="btnSeleccionar_Click" Grid.ColumnSpan="2"/>
+
+        <Label Grid.Column="1" Content="Rol" HorizontalAlignment="Left" Margin="675,210,0,0" 
+               VerticalAlignment="Top"/>
+
+        <Button x:Name="btnEliminar" Grid.Column="1" Content="Eliminar Usuario" Margin="703,446,47,226"
+        Click="btnEliminar_Click" Grid.ColumnSpan="2"/>
 
     </Grid>
 </Window>

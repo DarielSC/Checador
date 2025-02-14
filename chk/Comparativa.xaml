@@ -5,35 +5,55 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:chk"
       mc:Ignorable="d" 
-      Title="Comparativa de registros" Height="720" Width="1000" Loaded="Window_Loaded">
+      Title="Comparativa de registros" Height="675" Width="1110" Loaded="Window_Loaded">
 
-    <Grid>
+    <Grid Margin="0,0,-8,-3">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"/>
             <ColumnDefinition Width="800"/>
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="200"/>
         </Grid.ColumnDefinitions>
 
-        <DataGrid ItemsSource="{Binding}" x:Name="dgComparar" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True"  d:ItemsSource="{d:SampleData ItemCount=5}" Margin="12,122,0,51" HorizontalAlignment="Left" Width="404" Grid.Column="1" SelectionChanged="dgUsuarios_SelectionChanged">
+        <Label Content="Tabla Comparativa de Asistencias para el dia: " HorizontalAlignment="Left" Margin="28,38,0,0" VerticalAlignment="Top" Width="492" FontSize="24" RenderTransformOrigin="0.329,0.103" Grid.Column="1" FontFamily="Arial"/>
+        <Label x:Name="lblFechaActual" FontSize="24" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,40,3,0" Grid.Column="1" Height="34" Width="270" FontFamily="Arial" RenderTransformOrigin="0.508,1.131"/>
+        <DataGrid ItemsSource="{Binding}" x:Name="dgAsistencia" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Margin="0,90,28,303" HorizontalAlignment="Right" Width="330" Grid.Column="1" Grid.ColumnSpan="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Matrícula" Binding="{Binding MatriculaRepetida}"/>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
+                <DataGridTextColumn Header="Apellido" Binding="{Binding Apellido}"/>
+                <DataGridTextColumn Header="Cargo" Binding="{Binding Cargo}"/>
+                <DataGridTextColumn Header="Departamento" Binding="{Binding Departamento}"/>
+                <DataGridTextColumn Header="Fecha Asistencia" Binding="{Binding FechaHoraAsistencia, StringFormat=\{0:dd/MM/yyyy HH:mm\}}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <DataGrid ItemsSource="{Binding}" x:Name="dgFaltas" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Margin="0,95,539,309" HorizontalAlignment="Right" Width="320" Grid.ColumnSpan="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Matrícula" Binding="{Binding MatriculaNoRepetida}"/>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
+                <DataGridTextColumn Header="Apellido" Binding="{Binding Apellido}"/>
+                <DataGridTextColumn Header="Cargo" Binding="{Binding Cargo}"/>
+                <DataGridTextColumn Header="Departamento" Binding="{Binding Departamento}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+        <DataGrid ItemsSource="{Binding}" x:Name="dgMotivosFaltas" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="281,92,0,0" Height="278" VerticalAlignment="Top" HorizontalAlignment="Left" Width="344" Grid.Column="1">
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="{x:Type DataGridColumnHeader}"/>
             </DataGrid.ColumnHeaderStyle>
-
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Matriculas con Asistencia " Binding="{Binding MatriculaRepetida}"/>
-                <DataGridTextColumn Header="Matriculas sin Asistencia" Binding="{Binding MatriculaNoRepetida}"/>
+                <DataGridTextColumn Header="IDFalta" Binding="{Binding IDFalta}" Visibility="Hidden"/>
+                <DataGridTextColumn Header="Matricula" Binding="{Binding Matricula}"/>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
+                <DataGridTextColumn Header="Apellido" Binding="{Binding Apellido}"/>
+                <DataGridTextColumn Header="Departamento" Binding="{Binding Departamento}"  Visibility="Hidden"/>
+                <DataGridTextColumn Header="Grado" Binding="{Binding Grado}"/>
+                <DataGridTextColumn Header="MotivoFalta" Binding="{Binding MotivoFalta}"/>
+                <DataGridTextColumn Header="FechaInicioFalta" Binding="{Binding FechaInicioFalta}"/>
+                <DataGridTextColumn Header="FechaFinFalta" Binding="{Binding FechaFinFalta}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Label Content="Tabla Comparativa de Asistencias para el dia: " HorizontalAlignment="Left" Margin="27,22,0,0" VerticalAlignment="Top" Width="492" FontSize="24" RenderTransformOrigin="0.329,0.103" Grid.Column="1" FontFamily="Arial"/>
-        <Label x:Name="lblFechaActual" FontSize="24" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,24,8,0" Grid.Column="1" Height="34" Width="270" FontFamily="Arial"/>
-        <TextBox x:Name="tbBuscar" Grid.Column="1" HorizontalAlignment="Left" Margin="453,118,0,0" TextWrapping="Wrap" Text="Buscar Matricula:" VerticalAlignment="Top" Width="207" Height="42" FontSize="14"/>
-        <Button x:Name="btnBuscar" Grid.Column="1" Content="Buscar" Margin="696,126,26,0" VerticalAlignment="Top" Grid.ColumnSpan="1" Height="44" Click="btnBuscar_Click"/>
-        <Label x:Name="lblMatricula" Content="Matricula" HorizontalAlignment="Left" Margin="452,210,0,0" VerticalAlignment="Top" Height="28" Width="163" Grid.Column="1" FontSize="14"/>
-        <Label x:Name="lblNombre" Grid.Column="1" Content="Nombre" HorizontalAlignment="Left" Margin="455,256,0,0" VerticalAlignment="Top" Height="26" Width="156" FontSize="14"/>
-        <Label x:Name="lblApellido" Grid.Column="1" Content="Apellido" HorizontalAlignment="Left" Margin="457,304,0,0" VerticalAlignment="Top" Height="28" Width="154" FontSize="14"/>
-        <Label x:Name="lblGrado" Grid.Column="1" Content="Grado:" HorizontalAlignment="Left" Margin="459,344,0,0" VerticalAlignment="Top" Height="27" Width="104" FontSize="14"/>
-        <Label x:Name="lblDepartamento" Grid.Column="1" Content="Departamento" HorizontalAlignment="Left" Margin="457,379,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <Label x:Name="lblFechaHoraAsistencia" Grid.Column="1" Content="FechaHoraAsistencia" HorizontalAlignment="Left" Margin="460,417,0,0" VerticalAlignment="Top" Width="139" FontSize="14"/>
 
     </Grid>
 </Window>

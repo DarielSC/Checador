@@ -44,7 +44,7 @@ namespace chk.Servicios
                                         Departamento = dr["Departamento"]?.ToString() ?? string.Empty,
                                         Nombre = dr["Nombre"]?.ToString() ?? string.Empty,
                                         Apellido = dr["Apellido"]?.ToString() ?? string.Empty,
-                                        Grado = dr["Cargo"]?.ToString() ?? string.Empty,
+                                        Grado = dr["Grado"]?.ToString() ?? string.Empty,
                                         Huella = dr["Huella"] != DBNull.Value ? (byte[])dr["Huella"] : Array.Empty<byte>(),
                                         FechaHoraAlta = dr["FechaHoraAlta"] != DBNull.Value ? Convert.ToDateTime(dr["FechaHoraAlta"]) : default,
                                         Condicion = dr["Condicion"]?.ToString() ?? string.Empty
@@ -255,7 +255,7 @@ namespace chk.Servicios
                                     Departamento = dr["Departamento"]?.ToString() ?? string.Empty,
                                     Nombre = dr["Nombre"]?.ToString() ?? string.Empty,
                                     Apellido = dr["Apellido"]?.ToString() ?? string.Empty,
-                                    Grado = dr["Cargo"]?.ToString() ?? string.Empty,
+                                    Grado = dr["Grado"]?.ToString() ?? string.Empty, // cambiar grado por cargo
                                 };
                             }
                         }

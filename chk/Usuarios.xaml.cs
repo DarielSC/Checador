@@ -27,7 +27,7 @@ namespace chk
             InitializeComponent();
         }
 
-        private void btnRegistar_Click(object sender, RoutedEventArgs e)
+        private void btnRegistrar_Click(object sender, RoutedEventArgs e)
         {
             // Validar que los campos no estén vacíos
             if (string.IsNullOrWhiteSpace(tbUsuario.Text) ||
@@ -81,6 +81,7 @@ namespace chk
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             dgUsuarios.ItemsSource = DatoUsuario.MuestraUsuarios();
+
         }
 
         private void btnSeleccionar_Click(object sender, RoutedEventArgs e)
@@ -91,7 +92,47 @@ namespace chk
 
         private void dgUsuarios_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            Usuario usuario = (Usuario)dgUsuarios.SelectedItem;
 
+            if (usuario == null)
+            {
+                return;
+            }
+
+            tbUsuario.Text = usuario.Matricula;
+        }
+
+
+        private void btnEliminar_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(tbUsuario.Text))
+            {
+                MessageBox.Show("El campo Matrícula debe ser especificado", "Error");
+                return;
+            }
+
+            try
+            {
+                string matricula = tbUsuario.Text;
+                int resultado = DatoUsuario.EliminarUsuario(matricula);
+
+                if (resultado > 0)
+                {
+                    MessageBox.Show("Usuario eliminado correctamente");
+                    // Limpiar los campos
+                    tbUsuario.Text = "";
+                    // Actualizar el DataGrid
+                    dgUsuarios.DataContext = DatoUsuario.MuestraUsuarios();
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró un usuario con la matrícula especificada", "Error");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No fue posible eliminar el usuario: " + ex.Message, "Error");
+            }
         }
     }
 }
