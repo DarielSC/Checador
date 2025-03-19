@@ -26,19 +26,19 @@
 
   <ItemGroup>
     <Reference Include="DPFPDevNET">
-      <HintPath>..\..\..\..\Downloads\Digital Pesonal SDK\dll\DPFPDevNET.dll</HintPath>
+      <HintPath>..\dll\DPFPDevNET.dll</HintPath>
     </Reference>
     <Reference Include="DPFPEngNET">
-      <HintPath>..\..\..\..\Downloads\Digital Pesonal SDK\dll\DPFPEngNET.dll</HintPath>
+      <HintPath>..\dll\DPFPEngNET.dll</HintPath>
     </Reference>
     <Reference Include="DPFPGuiNET">
-      <HintPath>..\..\..\..\Downloads\Digital Pesonal SDK\dll\DPFPGuiNET.dll</HintPath>
+      <HintPath>..\dll\DPFPGuiNET.dll</HintPath>
     </Reference>
     <Reference Include="DPFPShrNET">
-      <HintPath>..\..\..\..\Downloads\Digital Pesonal SDK\dll\DPFPShrNET.dll</HintPath>
+      <HintPath>..\dll\DPFPShrNET.dll</HintPath>
     </Reference>
     <Reference Include="DPFPVerNET">
-      <HintPath>..\..\..\..\Downloads\Digital Pesonal SDK\dll\DPFPVerNET.dll</HintPath>
+      <HintPath>..\dll\DPFPVerNET.dll</HintPath>
     </Reference>
     <Reference Include="System.Deployment">
       <HintPath>..\..\..\..\..\..\Windows\Microsoft.NET\Framework\v4.0.30319\System.Deployment.dll</HintPath>
